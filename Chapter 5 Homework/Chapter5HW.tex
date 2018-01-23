@@ -1,0 +1,83 @@
+\documentclass{article}
+
+\usepackage[left=1in, right=1in, top=1in, bottom=1in]{geometry}
+
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{makecell}
+\usepackage{booktabs}
+
+\hypersetup{
+    colorlinks=true,     
+    urlcolor=magenta
+}
+
+\renewcommand{\qedsymbol}{\rule{0.7em}{0.7em}}
+
+\newlength\tindent
+\setlength{\tindent}{\parindent}
+\setlength{\parindent}{0pt}
+\renewcommand{\indent}{\hspace*{\tindent}}
+\setlength{\parskip}{0em}
+
+\newenvironment{blockquote}{%
+  \par%
+  \vskip1em
+  \leftskip=2em\rightskip=2em%
+  \noindent\ignorespaces}{%
+  \par\vskip1em}
+
+\newenvironment{blockquote2}{%
+	\par%
+	\vskip1em
+	\leftskip=4em\rightskip=4em%
+	\noindent\ignorespaces}{%
+	\par\vskip1em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LO]{STA5076}
+\fancyhead[RO]{Kyle Ligon}
+\fancyfoot[LO]{Chapter 5}
+\fancyfoot[RO]{\thepage}
+ 
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+\begin{document}
+\subsection*{Problem 5.28}
+
+\Hypothesis
+\begin{blockquote}
+	$H_0: \ \mu = 35$ \\
+	$H_{a}: \ \mu < 35$ 
+\end{blockquote}
+
+\Test Statistic
+\begin{blockquote}
+	$z_0 = \frac{\bar{y}-\mu_0}{\sigma/\sqrt{n}} = \frac{33.6-35}{9.2/\sqrt{40}} = -1.076$
+\end{blockquote}
+
+\Rejection Region
+\begin{blockquote}
+Reject if $z_0 \le z_\alpha$;$z_{0.01}=-2.575$
+\end{blockquote}
+
+\P-Value
+\begin{blockquote}
+With a confidence level of 99\% to compare to, my P-value ends up being 0.141.  
+\end{blockquote}
+
+\Conclusion / Interpretation
+\begin{blockquote}
+	We fail to reject the null hypothesis.  There is not sufficient evident to suggest that the number of improperly issued tickets is < 35.  
+\end{blockquote}
+
+\end{document}
