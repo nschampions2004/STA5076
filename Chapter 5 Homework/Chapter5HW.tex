@@ -7,12 +7,15 @@
 \usepackage{hyperref}
 \usepackage{amsthm}
 \usepackage{amssymb}
-\usepackage{amsmath}
 \usepackage{multirow}
 \usepackage{enumitem}
 \usepackage{graphicx}
 \usepackage{makecell}
 \usepackage{booktabs}
+\usepackage{titlesec}
+\usepackage{amsmath}
+
+\setcounter{secnumdepth}{4}
 
 \hypersetup{
     colorlinks=true,     
@@ -52,32 +55,135 @@
 \renewcommand{\footrulewidth}{0.5pt}
 
 \begin{document}
-\subsection*{Problem 5.28}
-
-\Hypothesis
+\section*{Chapter 5 Homework}
+\subsection*{Due 2-4-2018}
+\subsubsection*{Problem 5.28}
+\subsubsection*{a) Is there substantial evidence (alpha = 0.01) that the additive reduces the mean absorption from its current value?}
+Hypothesis
 \begin{blockquote}
 	$H_0: \ \mu = 35$ \\
 	$H_{a}: \ \mu < 35$ 
 \end{blockquote}
-
-\Test Statistic
+Test Statistic
 \begin{blockquote}
+	With an n = 50, we can assume a z test statistic will be appropriate.  
 	$z_0 = \frac{\bar{y}-\mu_0}{\sigma/\sqrt{n}} = \frac{33.6-35}{9.2/\sqrt{40}} = -1.076$
 \end{blockquote}
-
-\Rejection Region
+Rejection Region
 \begin{blockquote}
-Reject if $z_0 \le z_\alpha$;$z_{0.01}=-2.575$
+Reject if $z_0 \le z_\alpha$ ; $z_{0.01}=-2.575$
 \end{blockquote}
-
-\P-Value
+P-Value
 \begin{blockquote}
 With a confidence level of 99\% to compare to, my P-value ends up being 0.141.  
 \end{blockquote}
-
-\Conclusion / Interpretation
+Conclusion / Interpretation
 \begin{blockquote}
-	We fail to reject the null hypothesis.  There is not sufficient evident to suggest that the number of improperly issued tickets is < 35.  
+	We fail to reject the null hypothesis.  There is not sufficient evident to suggest that the number of improperly issued tickets is less than 35.  
+\end{blockquote}
+\subsubsection*{b) What is the level of significance(p-value) of your test results?}
+\begin{blockquote} The level of significance(p-value) is 0.141.
+\end{blockquote}
+\subsubsection*{d) Estimate the mean absorption using a 99\% confidence interval.  Is the confidence interval consistent with your conclusions wform the hypothesis test?}
+Confidence Interval
+\begin{blockquote}
+\begin{equation}
+	C.I. = \bar{y} \pm z_{1-\frac{\alpha}{2}}(\frac{\sigma}{\sqrt{n}})
+\end{equation}
+Where our s = 9.2, 
+\end{blockquote}
+Conclusion
+\begin{blockquote}
+Since my $\mu = 35$ sits between the two values of my confidence interval, this fits my Conclusion to my hypothesis test that we don't have significant enough data to reject the Null Hypothesis.  
+\end{blockquote}
+\pagebreak
+\subsection*{Problem 41}
+\subsubsection*{a) Place a 95\% confidence on the mean dissolved oxygen level during the 2-month period.}
+Confidence Interval
+\begin{blockquote}
+Since my sample size is small (n = 8) and I don't have $\sigma$, I'll leverage a confidence interval based on Student's t Distribution.   
+\end{blockquote}
+Equation
+\begin{equation}
+C.I. = \bar{y} \pm t_{1-\frac{\alpha}{2}}(\frac{s}{\sqrt{n}})
+\end{equation}
+
+$\bar{y} = 4.95,$
+$s = 0.45,$
+$n = 8,$
+$t_{1-\frac{\alpha}{2}} = 2.365$
+\begin{equation}
+C.I. = 4.95 \pm 2.365(\frac{0.45}{\sqrt{8}})
+\end{equation}
+\begin{equation}
+C.I. \approx (4.5737, 5.3263)
+\end{equation}
+
+\subsubsection*{b) Using the confidence interval from part (a), does the mean oxygen level appear to be less than 5 ppm?}
+
+Conclusion
+\begin{blockquote}
+With the left tail of the Confidence Interval being less than 5 ppm, it does appear that the population mean($\mu$) could be less than 5 ppm.  
 \end{blockquote}
 
+\subsubsection*{c) Test the research hypothesis that the mean oxygen level is less than 5 ppm.  What is the level of significance of your test?  Interpret your findings.}
+
+Hypothesis
+\begin{blockquote}
+$H_0: \mu = 5$
+
+$H_A: \mu < 5$
+\end{blockquote}
+
+Test Statistic
+\begin{blockquote}
+Since we used a Confidence Interval based on the t distribution, we will use the same distribution just as a 95\% Hypothesis Test since it wasn't stated in the problem.  
+\begin{equation}
+t=\frac{\bar{y}-\mu_0}{s/\sqrt{n}}
+\end{equation}
+\begin{equation}
+t=\frac{4.95-5}{0.45/\sqrt{8}}
+\end{equation}
+
+\begin{equation}
+t = -0.314
+\end{equation}
+\end{blockquote}
+
+Rejection Region
+\begin{blockquote}
+Since this is a one-sided t-test, we will check what the rejection region is for a t distribution with 7 degrees of freedom and an $\alpha$ of 0.05.  
+
+The rejection region for the Null Hypothesis would be any t-score $\le$ -1.895.  
+\end{blockquote}
+
+P-value
+\begin{blockquote}
+Additionally, the p-value of such a t = -0.314 
+\end{blockquote}
+
+Conclusion / Interpretation
+\begin{blockquote}
+\end{blockquote}
+
+
+
+
 \end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
