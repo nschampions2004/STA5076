@@ -17,6 +17,13 @@ v_m <- sd(m)^2
 sd_f <- sd(f)
 sd_m <- sd(m)
 
-#standard deviation of the population?
+#standard deviation pooled
 s_p <- sqrt((((length(m)-1)*sd(m)^2) + (length(f)-1)*sd(f)^2)/(length(m)+length(f) -1))
 
+#6.15 wilcoxon rank test
+
+#Population A
+x <- c(4.3, 4.6, 4.7, 5.1, 5.3, 5.8, 5.3, 5.4)
+#Population B
+y <- c(3.5, 3.8, 3.7, 3.9, 4.4, 4.7, 5.2, 4.4)
+wilcox.test(x, y)
