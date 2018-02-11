@@ -1,0 +1,231 @@
+\documentclass{article}
+
+\usepackage[left=1in, right=1in, top=1in, bottom=1in]{geometry}
+
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{makecell}
+\usepackage{booktabs}
+\usepackage{titlesec}
+\usepackage{amsmath}
+
+\setcounter{secnumdepth}{4}
+
+\hypersetup{
+    colorlinks=true,     
+    urlcolor=magenta
+}
+
+\renewcommand{\qedsymbol}{\rule{0.7em}{0.7em}}
+
+\newlength\tindent
+\setlength{\tindent}{\parindent}
+\setlength{\parindent}{0pt}
+\renewcommand{\indent}{\hspace*{\tindent}}
+\setlength{\parskip}{0em}
+
+\newenvironment{blockquote}{%
+  \par%
+  \vskip1em
+  \leftskip=2em\rightskip=2em%
+  \noindent\ignorespaces}{%
+  \par\vskip1em}
+
+\newenvironment{blockquote2}{%
+	\par%
+	\vskip1em
+	\leftskip=4em\rightskip=4em%
+	\noindent\ignorespaces}{%
+	\par\vskip1em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LO]{STA5176}
+\fancyhead[RO]{Kyle Ligon}
+\fancyfoot[LO]{Chapter 6}
+\fancyfoot[RO]{\thepage}
+ 
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+\begin{document}
+\section*{Chapter 6 Homework}
+\subsection*{Due 2-18-2018}
+\subsubsection*{Problem 6.13}
+\subsubsection*{a) Complete a Hypothesis Test for $\mu_1$-$\mu_2$; $\alpha$ = 0.05}
+Hypotheses
+\begin{blockquote}
+	$H_0: \mu_1 - \mu_2 = 0$
+
+	$H_{A}: \mu_1 - \mu_2 \neq 0$
+\end{blockquote}
+
+Assumptions:
+\begin{blockquote}
+	1) Independent Samples.  
+
+	2) Equal Variances.  ($\sigma_F^{2} = 1.4136,  \sigma_M^{2} = 1.0077$)
+\end{blockquote}
+
+Test Statistic: 
+\begin{eqnarray}
+	t_0 = \frac{\bar{y_1}-\bar{y_2}-D_0}{s_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}} \nonumber \\
+	t_0 = \frac{(8.5333 - 9.6833)-0}{1.0719\sqrt{0.0417+0.0278}} \nonumber \\
+	t_0 = \frac{-1.15}{0.2826} \nonumber \\
+	t_0 = -4.0708 \nonumber
+\end{eqnarray}
+Rejection Region
+\begin{blockquote}
+$|t_0| \geq t_{\frac{\alpha}{2}, 58};  t_{\frac{\alpha}{2}, 58} = 2.0017$
+
+Thus, $|-4.0708| = 4.0708 \geq 2.0017$
+\end{blockquote}
+
+P-Value
+\begin{blockquote}
+The p-value on a t-score of -4.0708 = $7.1822x10^{-5}.$   
+
+Therefore, with out p-value is less than our $\alpha$ of 0.025.  
+\end{blockquote}
+
+Conclusion
+\begin{blockquote}
+Since the absolute value of our t-score is greater than our Rejection Bound, there is sufficient evidence to reject our Null Hypothesis.  There is evidence to suggest that the two mean pays between the Male and Female group are different.  
+\end{blockquote}
+
+\subsubsection*{b) Complete a 95\% C.I. for $\mu_1 - \mu_2$}
+Assumptions
+\begin{blockquote}
+1) We are still under the assumption that these two groups were chosen independently.
+
+2) We are also under the assumption that the Variances are equal and holding from the last section.  
+\end{blockquote}
+Confidence Interval Equation
+\begin{eqnarray}
+	C.I. = \bar{y_1}-\bar{y_2} \pm t_{\frac{\alpha}{2}, df}(\frac{s_1^{2}}{\sqrt{n_1}} + \frac{s_2^{2}}{\sqrt{n_2}}) \nonumber \\
+	C.I. =  (8.5333 - 9.6833) \pm 2.0017(\frac{1.4136}{4.8990}+\frac{1.0077}{6}) \nonumber \\
+	C.I. = -1.15 \pm 2.0017(0.4565) \nonumber \\ 
+	C.I. = -1.15 \pm 0.9138 \nonumber \\
+	C.I \approx (-2.0638, -0.2362)  \nonumber 
+\end{eqnarray}
+
+Conclusion
+\begin{blockquote}
+Since 0 is not in our confidence interval, we can conclude we have strong enough evidence to suggest that the population mean pays between men and women at this firm are different.  This supports the hypothesis test we did in a).  
+\end{blockquote}
+
+\subsubsection*{Problem 6.15}
+\subsubsection*{ Random samples of size $n_1$ = 8 and $n_2$ = 8 were selected from populations A and B, respectively.}
+\subsubsection*{a) Test for a difference in the medians of the two populations using an $\alpha$ = 0.05 Wilcoxon Rank Sum Test.}
+
+Hypotheses
+\begin{blockquote}
+	$H_0: M_A = M_B$
+
+	$H_A: M_A \neq M_B$
+\end{blockquote}
+
+Assumptions
+\begin{blockquote}
+1) Independent Random Samples
+
+2) Population distributions are the same, except one is shifted from the other
+\end{blockquote}
+
+Test Statistic
+\begin{table}[ht]
+\caption{Wilcoxon Rank Sum Test for Population A and Population B}
+\centering
+\begin{tabular}{c c c}
+\hline\hline
+Value & Rank & Group \\ [0.5ex] 
+\hline
+3.5 & 1 & B  \\
+3.7 & 2 & B  \\
+3.8 & 3 & B  \\
+3.9 & 4 & B  \\
+4.3 & 5 & A  \\ 
+4.4 & 6.5 & B  \\ 
+4.4 & 6.5 & B  \\
+4.6 & 8 & A  \\
+4.7 & 9.5 & A  \\
+4.7 & 9.5 & B  \\
+5.1 & 11 & A  \\  
+5.2 & 12 & B  \\
+5.3 & 13.5 & A  \\
+5.3 & 13.5 & A  \\ 
+5.4 & 15 & A  \\ 
+5.8 & 16 & A  \\ [1ex]
+\hline
+\end{tabular}
+\label{table:nonlin}
+\end{table}
+\begin{blockquote}
+$T_0 = \sum\limits_{i = 1}^n r $, where r is the ranks of the values in the 1st Population (Group A in our case)
+
+$T_0 = 91.5$
+\end{blockquote}
+
+Rejection Region
+\begin{blockquote}
+For this test, we need both the Upper and Lower bounds of this Rejection Boundaries.  For a test with $\alpha$ = 0.05 as a two-tailed test with both sample sizes being 8, $T_L = 49 and T_U = 87.$  Since our $T_0 = 91.5 \ge 87 = T_U$, we have enough to make a conclusion.  
+\end{blockquote}
+
+P-Value
+\begin{blockquote}
+Due to having ties, a true, exact p-value cannot be computed.  However, R's wilcox.test function yields an approximate p-value of 0.01549.  
+\end{blockquote}
+Conclusion
+\begin{blockquote}
+Since our $T_0 \ge T_U$, we have enough statistical evidence to reject the Null Hypothesis that $M_A = M_B$.  There is extreme enough data to indicate that $M_A \neq M_B$.  Our p-value of 0.0149 backs that conclusion up since it is less than our upper tailed $\alpha$ of 0.025.  
+\end{blockquote}
+
+\subsubsection*{Problem 6.15}
+\subsubsection*{a) Is there significant evidence that the mean SENS value decreased after the patient received antihypertensive treatment?}
+Hypotheses
+\begin{blockquote}
+
+\end{blockquote}
+
+Assumptions
+\begin{blockquote}
+
+\end{blockquote}
+
+Test Statistic
+\begin{blockquote}
+
+\end{blockquote}
+
+Rejection Region
+\begin{blockquote}
+
+\end{blockquote}
+
+P-value
+\begin{blockquote}
+
+\end{blockquote}
+
+Conclusion
+\begin{blockquote}
+
+\end{blockquote}
+
+\subsubsection*{b) Estimate the size of the change in the mean SENS value}
+
+
+
+
+
+
+
+
+
+\end{document}
