@@ -261,18 +261,24 @@ Since our $t_0 =$ 1.722 $<$ 1.833 and our p-value = 0.0596 $>$ 0.05, there is no
 \end{blockquote}
 
 \subsubsection*{b) Estimate the size of the change in the mean SENS value}
-To estimate the size change, we will create a confidence interval of the paired data.  
+\begin{blockquote}
+To estimate the size change, we will create a 95\% confidence interval of the mean of the paired data.  
+\end{blockquote}
 
 \begin{eqnarray}
-C.I. = $\bar{d} \pm t_\frac{\alpha}{2}, df \left(\frac{s_d}{\sqrt{n}}\right)$ \nonumber \\
-C.I. = $2.584 \pm 2.262\left(1.5006\right)$ \nonumber \\
-C.I. = $2.584 \pm 3.3944$ \nonumber \\
+C.I. = \bar{d} \pm t_\frac{\alpha}{2}, df \left(\frac{s_d}{\sqrt{n}}\right) \nonumber \\
+C.I. = 2.584 \pm 2.262\left(1.5006\right) \nonumber \\
+C.I. = 2.584 \pm 3.3944 \nonumber \\
 C.I. \approx (-0.8104, 5.9784) \nonumber 
-
 \end{eqnarray}
 
+Conclusion
+\begin{blockquote}
+We are 95\% confident that the mean difference between the Before and After group is between -0.8104 and 5.9784.  
+\end{blockquote}
 
-
+\subsubsection*{Problem 6.36}
+\subsubsection*{Use these data to test the research hypothesis that the distribution of heart rates for the dogs when receiving Benzedrine is shifted to the right of that for the same animals on the placebo.  Use a one-tailed Wilcoxon signed-rank test with $\alpha$ = 0.05}
 
 
 
