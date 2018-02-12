@@ -1,0 +1,183 @@
+\documentclass{article}
+
+\usepackage[left=1in, right=1in, top=1in, bottom=1in]{geometry}
+
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{makecell}
+\usepackage{booktabs}
+\usepackage{titlesec}
+\usepackage{amsmath}
+
+\setcounter{secnumdepth}{4}
+
+\hypersetup{
+    colorlinks=true,     
+    urlcolor=magenta
+}
+
+\renewcommand{\qedsymbol}{\rule{0.7em}{0.7em}}
+
+\newlength\tindent
+\setlength{\tindent}{\parindent}
+\setlength{\parindent}{0pt}
+\renewcommand{\indent}{\hspace*{\tindent}}
+\setlength{\parskip}{0em}
+
+\newenvironment{blockquote}{%
+  \par%
+  \vskip1em
+  \leftskip=2em\rightskip=2em%
+  \noindent\ignorespaces}{%
+  \par\vskip1em}
+
+\newenvironment{blockquote2}{%
+	\par%
+	\vskip1em
+	\leftskip=4em\rightskip=4em%
+	\noindent\ignorespaces}{%
+	\par\vskip1em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LO]{STA5076}
+\fancyhead[RO]{Kyle Ligon}
+\fancyfoot[LO]{Chapter 5}
+\fancyfoot[RO]{\thepage}
+ 
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+\begin{document}
+\section*{Chapter 5 Homework}
+\subsection*{Due 2-4-2018}
+\subsubsection*{Problem 5.28}
+\subsubsection*{a) Is there substantial evidence ($\alpha$ = 0.01) that the additive reduces the mean absorption from its current value?}
+Hypothesis
+\begin{blockquote}
+	$H_0: \ \mu = 35$ \\
+	$H_{A}: \ \mu < 35$ 
+\end{blockquote}
+Test Statistic
+\begin{blockquote}
+	With an n = 50, we can assume a z test statistic will be appropriate. 
+\end{blockquote}
+\begin{equation} 
+	z_0 = \frac{\bar{y}-\mu_0}{\sigma/\sqrt{n}} = \frac{33.6-35}{9.2/\sqrt{40}} = -1.076
+\end{equation}
+Rejection Region
+\begin{blockquote}
+Reject if $z_0 \le z_\alpha$ ; $z_{0.01}=-2.575$
+\end{blockquote}
+P-Value
+\begin{blockquote}
+The p-value on a z-score of -1.076 is 0.141.    
+\end{blockquote}
+Conclusion / Interpretation
+\begin{blockquote}
+Since 0.141 > 0.01, we fail to reject the null hypothesis.  There is not sufficient evident to suggest that the number of improperly issued tickets is less than 35.  
+\end{blockquote}
+\subsubsection*{b) What is the level of significance(p-value) of your test results?}
+\begin{blockquote} The level of significance(p-value) is 0.141.
+\end{blockquote}
+\subsubsection*{d) Estimate the mean absorption using a 99\% confidence interval.  Is the confidence interval consistent with your conclusions from the hypothesis test?}
+Confidence Interval
+\begin{blockquote}
+Where our s = 9.2, n = 40, $\bar{y}$ = 33.6, $\alpha$ = 0.01, and $z_0.975$ = 1.96, we get the following: 
+\end{blockquote}
+\begin{eqnarray}
+	C.I. = \bar{y} \pm z_{1-\frac{\alpha}{2}}(\frac{s}{\sqrt{n}}) \nonumber \\
+	C.I. = 33.6 \pm 1.96(\frac{9.2}{\sqrt{40}}) \nonumber \\
+	C.I \approx (30.749, 36.451) \nonumber 
+\end{eqnarray}
+Conclusion
+\begin{blockquote}
+Since my $\mu = 35$ sits between the two values of my confidence interval, this fits the conclusion to my hypothesis test that we don't have extreme enough data to reject the Null Hypothesis.  
+\end{blockquote}
+\pagebreak
+\subsection*{Problem 41}
+\subsubsection*{a) Place a 95\% confidence on the mean dissolved oxygen level during the 2-month period.}
+Confidence Interval
+\begin{blockquote}
+Since my sample size is small (n = 8) and I don't have $\sigma$, I'll leverage a confidence interval based on Student's t Distribution.   
+\end{blockquote}
+Equation
+\begin{equation}
+C.I. = \bar{y} \pm t_{1-\frac{\alpha}{2}}(\frac{s}{\sqrt{n}}) \nonumber
+\end{equation}
+
+
+where, $\bar{y} = 4.95,$
+$s = 0.45,$
+$n = 8,$
+$t_{1-\frac{\alpha}{2}} = 2.365$ 
+\begin{equation}
+C.I. = 4.95 \pm 2.365(\frac{0.45}{\sqrt{8}}) \nonumber
+\end{equation}
+\begin{equation}
+C.I. \approx (4.5737, 5.3263) \nonumber
+\end{equation}
+
+\subsubsection*{b) Using the confidence interval from part (a), does the mean oxygen level appear to be less than 5 ppm?}
+
+Conclusion
+\begin{blockquote}
+With the left tail of the Confidence Interval being less than 5 ppm, it does appear that the population mean($\mu$) could be less than 5 ppm.  
+\end{blockquote}
+
+\subsubsection*{c) Test the research hypothesis that the mean oxygen level is less than 5 ppm.  What is the level of significance of your test?  Interpret your findings.}
+
+Hypothesis
+\begin{blockquote}
+$H_0: \mu = 5$
+
+$H_A: \mu < 5$
+\end{blockquote}
+
+Test Statistic
+\begin{blockquote}
+Since we used a Confidence Interval based on the t distribution, we will use the same distribution just as a 95\% Hypothesis Test since the confidence level wasn't stated explicitly in the problem.  
+\end{blockquote}
+\begin{eqnarray}
+t=\frac{\bar{y}-\mu_0}{s/\sqrt{n}} \nonumber \\
+t = \frac{4.95-5}{0.45/\sqrt{8}} \nonumber \\
+t = -0.314\
+\end{eqnarray}
+Rejection Region
+\begin{blockquote}
+Since this is a one-sided t-test, we will check what the rejection region is for a t distribution with 7 degrees of freedom and an $\alpha$ of 0.05.  The rejection region for the Null Hypothesis would be any t-score $\le$ -1.895.  
+\end{blockquote}
+
+P-value
+\begin{blockquote}
+Additionally, the p-value of such a t = -0.314 is 0.381336.
+\end{blockquote}
+
+Conclusion / Interpretation
+\begin{blockquote}
+Therefore, with a p-value of 0.381336 $>$ $\alpha$ and -0.314 not being less than the rejection boundary, there is not sufficient evidence to reject the Null Hypothesis.  It does not appear that we have extreme enough data to warrant the idea the the population mean oxygen level is less than 5 ppm.  Additionally, this fits out Confidence Interval.  
+\end{blockquote}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

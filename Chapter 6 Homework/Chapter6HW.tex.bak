@@ -186,40 +186,90 @@ Conclusion
 Since our $T_0 \ge T_U$, we have enough statistical evidence to reject the Null Hypothesis that $M_A = M_B$.  There is extreme enough data to indicate that $M_A \neq M_B$.  Our p-value of 0.0149 backs that conclusion up since it is less than our upper tailed $\alpha$ of 0.025.  
 \end{blockquote}
 
-\subsubsection*{Problem 6.15}
+\subsubsection*{Problem 6.28}
 \subsubsection*{a) Is there significant evidence that the mean SENS value decreased after the patient received antihypertensive treatment?}
 Hypotheses
 \begin{blockquote}
-
+	$H_0: \mu_1 - \mu_2 \leq 0$
+	
+	$H_A: \mu_1 - \mu_2 > 0$
+	
+	$\mu_ 1$ = mean of the Before group 
+	
+	$\mu_2$  = mean of the After group 
 \end{blockquote}
 
 Assumptions
 \begin{blockquote}
-
+	1) Sampling distributions of $d_i$ are normally distributed.
+	
+	2) $d_i$ are independent.  
 \end{blockquote}
 
 Test Statistic
 \begin{blockquote}
+With there being a before and after treatment for 10 patients, we will use the T-test for Paired Data.  In order to begin, we must find the differences for each pair of data.  
+\begin{table}[ht]
+\caption{Table for Paired Data to be used in T-test}
+\centering
+\begin{tabular}{c c c}
+\hline\hline
+Before & After & Difference \\ [0.5ex] 
+\hline
+22.86 & 6.11 & 16.75   \\
+7.74 & -4.02 & 11.76 \\
+15.49 & 8.04 & 7.45  \\
+9.97 & 3.29 & 6.68  \\
+1.44 & -0.77 & 2.21  \\ 
+9.39 & 6.99 & 2.4  \\ 
+11.40 & 10.19 & 1.21  \\
+1.86 & 2.09 & -0.23  \\
+-6.71 & 11.40 & -18.11 \\
+6.42 & 10.70 & -4.28 \\ [1ex]
+\hline
+\end{tabular}
+\label{table:nonlin}
+\end{table}
 
+With the differences being found, we must not find the mean of the differences, standard deviations of differences, number of those paired points.  
+\\
+$\bar{d} $ = 2.584 \\
+$s_d $ = 9.4907 \\
+$n_d $ = 10
+
+
+\begin{eqnarray}
+	t_0 = \frac{2.584-0}{\frac{9.4907}{\sqrt{40}}} \nonumber \\
+	t_0 = \frac{2.584}{1.5006} \nonumber \\
+	t_0 = 1.722 \nonumber \\
+\end{eqnarray}
 \end{blockquote}
 
 Rejection Region
 \begin{blockquote}
-
+	With an identified test statistic, we need to find the boundary on our statistical test.  With an $\alpha$ of 0.05 and degrees of freedom of 9, our rejection region is at t = 1.833.  Thus, if our test statistic $>$ 1.833, we'll reject the null hypothesis that the SENS value hasn't decreased with the treatment.  
 \end{blockquote}
 
 P-value
 \begin{blockquote}
-
+To get the p-value, we check the table for a test statistic of 1.722 for 9 degrees of freedom.  The p-value of 1.722 for 9 degrees of freedom is 0.0596.  
 \end{blockquote}
 
 Conclusion
 \begin{blockquote}
-
+Since our $t_0 =$ 1.722 $<$ 1.833 and our p-value = 0.0596 $>$ 0.05, there is not strong evidence that we should reject $\mu_1 - \mu_2 \leq 0$.  Thus, there is not supporting evidence that this treatment decreased SENS value.  
 \end{blockquote}
 
 \subsubsection*{b) Estimate the size of the change in the mean SENS value}
+To estimate the size change, we will create a confidence interval of the paired data.  
 
+\begin{eqnarray}
+C.I. = $\bar{d} \pm t_\frac{\alpha}{2}, df \left(\frac{s_d}{\sqrt{n}}\right)$ \nonumber \\
+C.I. = $2.584 \pm 2.262\left(1.5006\right)$ \nonumber \\
+C.I. = $2.584 \pm 3.3944$ \nonumber \\
+C.I. \approx (-0.8104, 5.9784) \nonumber 
+
+\end{eqnarray}
 
 
 
