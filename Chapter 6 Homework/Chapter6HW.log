@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.6.30)  11 FEB 2018 19:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.6.30)  17 FEB 2018 11:30
 entering extended mode
 **./Chapter6HW.tex
 (Chapter6HW.tex
@@ -338,30 +338,84 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 635.
 LaTeX Info: Redefining \[ on input line 2739.
 LaTeX Info: Redefining \] on input line 2740.
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 23.
-\tindent=\skip64
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pdfpages\pdfpages.sty"
+Package: pdfpages 2017/10/31 v0.5l Insert pages of external PDF documents (AM)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\calc.sty"
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count119
+\calc@Bcount=\count120
+\calc@Adimen=\dimen149
+\calc@Bdimen=\dimen150
+\calc@Askip=\skip64
+\calc@Bskip=\skip65
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count121
+\calc@Cskip=\skip66
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\eso-pic\eso-pic.sty"
+Package: eso-pic 2015/07/21 v2.0g eso-pic (RN)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty"
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+))
+\AM@pagewidth=\dimen151
+\AM@pageheight=\dimen152
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pdfpages\pppdftex.def"
+File: pppdftex.def 2017/10/31 v0.5l Pdfpages driver for pdfTeX (AM)
+)
+\AM@pagebox=\box30
+\AM@global@opts=\toks32
+\AM@toc@title=\toks33
+\c@AM@survey=\count122
+\AM@templatesizebox=\box31
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 24.
+\tindent=\skip67
 
 (Chapter6HW.aux
+
+LaTeX Warning: Label `table:nonlin' multiply defined.
+
 
 LaTeX Warning: Label `table:nonlin' multiply defined.
 
 )
 \openout1 = `Chapter6HW.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -397,28 +451,19 @@ LaTeX Font Info:    ... okay on input line 57.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\AtBeginShipoutBox=\box30
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\color.sty"
-Package: color 2016/06/02 v1.1d Standard LaTeX Color (DPC)
-
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
-File: color.cfg 2016/01/02 v1.6 sample color configuration
-)
-Package color Info: Driver file: pdftex.def on input line 147.
-)
-Package hyperref Info: Link coloring ON on input line 57.
-
+\AtBeginShipoutBox=\box32
+Package hyperref Info: Link coloring ON on input line 58.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count119
+\c@section@level=\count123
 )
-LaTeX Info: Redefining \ref on input line 57.
-LaTeX Info: Redefining \pageref on input line 57.
-LaTeX Info: Redefining \nameref on input line 57.
+LaTeX Info: Redefining \ref on input line 58.
+LaTeX Info: Redefining \pageref on input line 58.
+LaTeX Info: Redefining \nameref on input line 58.
 
 (Chapter6HW.out) (Chapter6HW.out)
 \@outlinefile=\write3
@@ -427,17 +472,17 @@ LaTeX Info: Redefining \nameref on input line 57.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count120
-\scratchdimen=\dimen149
-\scratchbox=\box31
-\nofMPsegments=\count121
-\nofMParguments=\count122
-\everyMPshowfont=\toks32
-\MPscratchCnt=\count123
-\MPscratchDim=\dimen150
-\MPnumerator=\count124
-\makeMPintoPDFobject=\count125
-\everyMPtoPDFconversion=\toks33
+\scratchcounter=\count124
+\scratchdimen=\dimen153
+\scratchbox=\box33
+\nofMPsegments=\count125
+\nofMParguments=\count126
+\everyMPshowfont=\toks34
+\MPscratchCnt=\count127
+\MPscratchDim=\dimen154
+\MPnumerator=\count128
+\makeMPintoPDFobject=\count129
+\everyMPtoPDFconversion=\toks35
 ) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -451,12 +496,20 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 61.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\pdflscape.sty"
+Package: pdflscape 2016/05/14 v0.11 Display of landscape pages in PDF (HO)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\lscape.sty"
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+)
+LaTeX Font Info:    Try loading font information for U+msa on input line 62.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 61.
+LaTeX Font Info:    Try loading font information for U+msb on input line 62.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -467,50 +520,105 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.172 $
-       T_0 = 91.5$] [3]pdfTeX warning (ext4): destination with the same identif
-ier (name{equation.0.1}) has been already used, duplicate ignored
+l.191 \begin{blockquote}
+                        ]
+Underfull \hbox (badness 10000) in paragraph at lines 198--200
+  
+ []
+
+[3]pdfTeX warning (ext4): destination with the same identifier (name{equation.0
+.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.241 \begin{eqnarray}
+l.250 \begin{eqnarray}
                       pdfTeX warning (ext4): destination with the same identifi
 er (name{equation.0.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.241 \begin{eqnarray}
+l.250 \begin{eqnarray}
                       pdfTeX warning (ext4): destination with the same identifi
 er (name{equation.0.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.241 \begin{eqnarray}
+l.250 \begin{eqnarray}
                       pdfTeX warning (ext4): destination with the same identifi
 er (name{equation.0.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.241 \begin{eqnarray}
-                      
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 287.
- [4]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 287.
+l.250 \begin{eqnarray}
+                       [4]
+Underfull \hbox (badness 10000) in paragraph at lines 294--297
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 309--314
+  
+ []
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 356--358
+  
+ []
+
+<Chapter6_script.pdf, id=39, 614.295pt x 794.97pt>
+File: Chapter6_script.pdf Graphic file (type pdf)
+ <use Chapter6_script.pdf>
+Package pdftex.def Info: Chapter6_script.pdf used on input line 365.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: Chapter6_script.pdf Graphic file (type pdf)
+
+<use Chapter6_script.pdf>
+Package pdftex.def Info: Chapter6_script.pdf used on input line 365.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+
+<Chapter6_script.pdf, id=42, page=1, 614.295pt x 794.97pt>
+File: Chapter6_script.pdf Graphic file (type pdf)
+
+<use Chapter6_script.pdf, page 1>
+Package pdftex.def Info: Chapter6_script.pdf, page1 used on input line 365.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: Chapter6_script.pdf Graphic file (type pdf)
+ <use Chapter6_script.pdf, page 1>
+Package pdftex.def Info: Chapter6_script.pdf, page1 used on input line 365.
+(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+ [6]
+File: Chapter6_script.pdf Graphic file (type pdf)
+
+<use Chapter6_script.pdf, page 1>
+Package pdftex.def Info: Chapter6_script.pdf, page1 used on input line 365.
+(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+File: Chapter6_script.pdf Graphic file (type pdf)
+ <use Chapter6_script.pdf, page 1>
+Package pdftex.def Info: Chapter6_script.pdf, page1 used on input line 365.
+(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+File: Chapter6_script.pdf Graphic file (type pdf)
+
+<use Chapter6_script.pdf, page 1>
+Package pdftex.def Info: Chapter6_script.pdf, page1 used on input line 365.
+(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+ [7 <./Chapter6_script.pdf>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 369.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 369.
  (Chapter6HW.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 287.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 287.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 369.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 369.
 Package rerunfilecheck Info: File `Chapter6HW.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 287.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 369.
  ) 
 Here is how much of TeX's memory you used:
- 7411 strings out of 493335
- 106153 string characters out of 3136665
- 206462 words of memory out of 3000000
- 10847 multiletter control sequences out of 15000+200000
+ 8554 strings out of 493335
+ 122338 string characters out of 3136665
+ 232438 words of memory out of 3000000
+ 11958 multiletter control sequences out of 15000+200000
  6857 words of font info for 27 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 29i,12n,43p,334b,349s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 37i,18n,43p,481b,446s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C
 :/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/
@@ -521,10 +629,15 @@ Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Fil
 es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files (
 x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files (x86)
 /MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on Chapter6HW.pdf (4 pages, 142204 bytes).
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files (x86)/MiKT
+eX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
+/type1/public/lm/lmr17.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publi
+c/lm/lmri12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmtk10
+.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmtt10.pfb><C:/Pr
+ogram Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmtti10.pfb>
+Output written on Chapter6HW.pdf (7 pages, 293629 bytes).
 PDF statistics:
- 73 PDF objects out of 1000 (max. 8388607)
- 9 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 130 PDF objects out of 1000 (max. 8388607)
+ 13 named destinations out of 1000 (max. 500000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
