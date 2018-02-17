@@ -1,0 +1,48 @@
+---
+title: "Chapter 7 Homework"
+author: "Kyle Ligon"
+date: "February 17, 2018"
+output: pdf_document
+---
+
+Problem 7.7 b)
+```{r}
+#T_U
+qchisq((1-0.05)/2, 149)
+
+#T_L
+qchisq(0.05/2, 149)
+
+#Lower End
+(149)*(9.537^2)/(147.2568)
+
+#Upper End
+(149)*(9.537^2)/(117.098)
+```
+
+Problem 7.7 c)
+```{r}
+#chisquare value
+(149*9.537^2)/(9^2)
+
+#upper val in Chi Sq test
+qchisq(0.99, 149)
+
+#probability in the right tail of our chi-sq dist
+1-pchisq(167.3111, 149)
+
+```
+
+Problem 7.16 a) and b)
+```{r}
+f <- (53.77^2)/(36.94^2)
+sqrt((1.53*f))
+sqrt((1/53*(1/f)))
+
+# part b test stat
+f
+
+# part b p-value
+1- pf(2.1188, 90, 90)
+
+```

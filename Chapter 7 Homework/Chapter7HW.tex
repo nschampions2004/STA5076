@@ -1,0 +1,192 @@
+\documentclass{article}
+
+\usepackage[left=1in, right=1in, top=1in, bottom=1in]{geometry}
+
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{makecell}
+\usepackage{booktabs}
+\usepackage{titlesec}
+\usepackage{amsmath}
+\usepackage{pdfpages}
+
+\setcounter{secnumdepth}{4}
+
+\hypersetup{
+    colorlinks=true,     
+    urlcolor=magenta
+}
+
+\renewcommand{\qedsymbol}{\rule{0.7em}{0.7em}}
+
+\newlength\tindent
+\setlength{\tindent}{\parindent}
+\setlength{\parindent}{0pt}
+\renewcommand{\indent}{\hspace*{\tindent}}
+\setlength{\parskip}{0em}
+
+\newenvironment{blockquote}{%
+  \par%
+  \vskip1em
+  \leftskip=2em\rightskip=2em%
+  \noindent\ignorespaces}{%
+  \par\vskip1em}
+
+\newenvironment{blockquote2}{%
+	\par%
+	\vskip1em
+	\leftskip=4em\rightskip=4em%
+	\noindent\ignorespaces}{%
+	\par\vskip1em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LO]{STA5176}
+\fancyhead[RO]{Kyle Ligon}
+\fancyfoot[LO]{Chapter 7}
+\fancyfoot[RO]{\thepage}
+ 
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+\begin{document}
+\section*{Chapter 7 Homework}
+\subsection*{Due 2-23-2018}
+\subsubsection*{Problem 7.7}
+\subsubsection*{ b) Estimate the variation in reading scores using a 99\% Confidence Interval}
+Which Confidence Interval?
+\begin{blockquote}
+Since we are trying to estimate the variation in the reading scores with a Confidence Interval, we should use $100(1-\alpha)\%$ CI for $\sigma^{2}$ which involves $\chi^{2}$.  
+\end{blockquote}
+
+Assumptions:
+\begin{blockquote}
+1) The population distribution is normal.  
+\end{blockquote}
+
+Confidence Interval Equation:
+\begin{blockquote}
+The Confidence Interval for Variance is as follows:
+\begin{eqnarray}
+C.I. = \left(\frac{\left(n-1\right)s^{2}}{\chi_{U}^{2}}, \sigma^{2}, \frac{\left(n-1\right)s^{2}}{\chi_{L}^{2}}\right) \nonumber \\
+C.I. = \left(\frac{\left(150 - 1\right)9.537^{2}}{147.2568}, \sigma^{2}, \frac{\left(150-1\right)9.537^{2}}{117.098}\right)  \nonumber \\
+C.I. \approx \left(92.0311, \sigma^{2}, 115.7338 \right) \nonumber \\
+\end{eqnarray}
+\end{blockquote}
+
+Conclusion/Interpretation:
+\begin{blockquote}
+We are 95\% confidence that the Variance in the large public school system is between 92.0311 and 115.7338 points.  
+\end{blockquote}
+
+
+\subsubsection*{c) Do the data indicate that the standard deviation in reading scores is greater than 9, the standard deviation for all students taking the exam the previous yea?  Use $\alpha$ = 0.01 in reaching your conclusion}
+Hypotheses:
+\begin{blockquote}
+With this test wanting to compare the standard deviation of theses students scores to the previous year's statewide results, we will use a Statistical Test for $\sigma^{2}$ and compare it to the Statewide Variance from last year of 81. \\
+
+$H_0: \sigma^{2} \leq \sigma_0^{2} = 81$ \\
+$H_1: \sigma^{2} > \sigma_0^{2} = 81$\\
+
+\end{blockquote}
+Assumptions:
+\begin{blockquote}
+1) We will still be assuming the population distribution is normal.  
+\end{blockquote}
+
+Test Statistic:
+\begin{blockquote}
+In order to find out the results of our statistical test, we will find the value of $\chi^{2}$ to determine if we can reject the null hypothesis. 
+
+\begin{eqnarray}
+\chi_0^{2} = \frac{\left(n-1\right)s^{2}}{\sigma_0^{2}} \nonumber \\
+\chi_0^{2} = \frac{\left(149\right)\left(9.537^{2}\right)}{9^{2}} \nonumber \\
+\chi_0^{2} = 167.3111 \nonumber \\
+\end{eqnarray}
+\end{blockquote}
+
+Rejection Region:
+\begin{blockquote}
+Since we have a one tail greater than test, if $\chi_0^{2} \geq \chi_{U}^{2}$, then we can reject the null hypothesis.  Using the qchisq function in R to get the upper bound, we have a $\chi_{U}^{2} = 192.073$  
+\end{blockquote}
+
+P-Value:
+\begin{blockquote}
+In order to get the P-value for chi-square value, we will utilize the R function pchisq.  Subtracting the value returned from 1 gives us a p-value of 0.1449.  
+\end{blockquote}
+
+Conclusion/Interpretation:
+\begin{blockquote}
+Since our $\chi_0^{2} < \chi_{U}^{2}$ and out p-value $> \alpha$, we do not have extreme enough results to reject the Null Hypothesis that the standard deviation of our group is less than or equal to the statewide performance last year.  
+\end{blockquote}
+
+
+\subsubsection*{Problem 7.16}
+\subsubsection*{a) 95\% C.I. for $\frac{\sigma_1}{\sigma_2}$}
+\begin{blockquote}
+Assume the Computer Group as Group 1 and Conventional Group as Group 2.  Since we are estimating a ratio of variances at the 0.95 Confidence Level, we will use the following equation: 
+\begin{eqnarray}
+C.I. = \left(\sqrt{\frac{s_{1}^{2}}{s_{2}^{2}}F_{1-\frac{\alpha}{2}, n_2 - 1, n_1 - 1}}, \sqrt{\frac{s_1^{2}}{s_2^{2}}F_{\frac{\alpha}{2}, n_{2}-1, n_{1}-1}}\right) \nonumber \\
+C.I. = \left(\sqrt{\frac{53.77^{2}}{36.94^{2}}\left(1.53\right)}, \sqrt{\frac{53.77^{2}}{36.94^{2}}\left(\frac{1}{1.53}\right)}\right) \nonumber \\
+C.I. \approx \left(0.0944, 1.8005\right)
+\end{eqnarray}
+\end{blockquote}
+Conclusion/Interpretation:
+\begin{blockquote}
+We are 95\% confident the true ratio of standard deviation's between the Computer test taking group and the Conventional test taking group lie between 0.0944 and 1.8005.  
+\end{blockquote}
+
+\subsubsection*{b) Hypothesis test for $\sigma_1 = \sigma_2$; $\alpha$ = 0.05}
+Hypotheses:
+\begin{blockquote}
+Since we want to check for equality amongst our standard deviations, we will use the statistical test for $\sigma_1^{2}$ and $\sigma_2^{2}$.  Group 1 will still be Computers, and Group 2 will be Conventional. \\
+$H_0: \sigma_{Comp} = \sigma_{Con}$ \\
+$H_1: \sigma_{Comp} \neq \sigma_{Con}$
+\end{blockquote}
+\pagebreak
+Assumptions:
+\begin{blockquote}
+1) Samples come from normally distributed populations.  
+\end{blockquote}
+
+Test Statistic:
+\begin{eqnarray}
+F_0 = \frac{53.77^{2}}{36.94^{2}} \nonumber \\
+F_0 = 2.1188
+\end{eqnarray}
+
+
+Rejection Region:
+\begin{blockquote}
+We are looking for both $F_{1-\frac{\alpha}{2}}$ and $F_{\frac{\alpha}{2}}$ to determine if the $H_0$ is in line for rejection.  Thus, by using the table, $F_{0.025}$ = $\frac{1}{1.53} = 0.6536$ and $F_{0.975} = 1.53$.  These will be the two values we will compare our 2.1188 to.  
+\end{blockquote}
+
+P-Value:
+\begin{blockquote}
+In order to arrive at the p-value for 2.1188 with $df_1$ and $df_2$ both being 90, we will utilize the pf function in R to get the appropriate p-value for our F statistic.  The function yields a cumulative probability to the left of 0.9997.  Thus, our p-value is 0.0003
+\end{blockquote}
+
+Conclusion/Interpretation:
+\begin{blockquote}
+Since our F statistic of 2.1188 is greater than our high end F Boundary of 1.53, there is sufficient evidence to reject the hypothesis that the population standard deviations are equal.  We have extreme enough evidence to appear that the population standard deviations are different between the group of students who took their exam on the computer and the group that took their test in a conventional method.  Using the p-value, we have evidence to point in the same direction.  This is because it is less than our $\frac{\alpha}{2}$ of 0.025.
+\end{blockquote}
+
+
+\subsubsection*{c)95\% C.I. for $\mu_1 - \mu_2$}
+
+
+\subsubsection*{d) Hypothesis test for $\mu_1 = \mu_2$; $\alpha$ = 0.05}
+
+\subsubsection*{Problem 7.18 }
+\subsubsection*{a) Perform a BFL test using R; you must present results in usual hypothesis test format; $\alpha$ = 0.05}
+
+
+\includepdf[pages=-]{Chapter_7_Script.pdf}
+
+\end{document}
