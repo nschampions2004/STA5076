@@ -179,9 +179,36 @@ Since our F statistic of 2.1188 is greater than our high end F Boundary of 1.53,
 
 
 \subsubsection*{c)95\% C.I. for $\mu_1 - \mu_2$}
+Which Confidence Interval Should We Use?:
+\begin{blockquote}
+Due to the fact that we are dealing with unequal variances or unequal standard deviations, we are going to follow down the path of using Satterwaite's approximation of $\mu_{Comp}-\mu_{Conv}$.  
+\end{blockquote}
 
+Assumptions:
+\begin{blockquote}
+1) Independent Samples for both groups. 
+2) We are assuming unequal variances hold from the problem b)
+\end{blockquote}
+
+Confidence Interval Equation:
+\begin{blockquote}
+In order to complete Satterwhaitte's approximation, we must find our degrees of freedom.  They are found by using this equation:
+\end{blockquote}
+\begin{eqnarray}
+df = \frac{\left(\frac{s_{Comp}^{2}}{n_{Comp}}+\frac{s_{Conv}^{2}}{n_{Conv}}\right)}{\frac{\left(\frac{s_{Comp}^{2}}{n_{Comp}}\right)^{2}}{n_{Comp}-1} + \frac{\left(\frac{s_{Conv}^{2}}{n_{Conv}}\right)^{2}}{n_{Conv}-1}} \nonumber \\
+df = \frac{\left(\frac{53.77^{2}}{91}+\frac{36.94^{2}}{91}\right)}{\frac{\left(\frac{53.77^{2}}{91}\right)^{2}}{90} + \frac{\left(\frac{36.94^{2}}{91}\right)^{2}}{90}} \nonumber \\
+df = \frac{31.7716 + 14.9952}{11.2159+2.4984} \nonumber \\
+df = \frac{46.7668}{13.7143} \nonumber \\
+df = 3.4101 \nonumber
+\end{eqnarray}
+
+\begin{eqnarray}
+C.I. = \left(\bar{y_{Comp}} - \bar{y_{Conv}}\right) \pm t_{\frac{\alpha}{2}, df}\sqrt{\frac{s_{Comp}^{2}}{n_{Comp}} + \frac{s_{Conv}^{2}}{n_{Conv}}} \nonumber \\
+C.I. = \left(484.45 - 487.38\right) \pm 
+\end{eqnarray}
 
 \subsubsection*{d) Hypothesis test for $\mu_1 = \mu_2$; $\alpha$ = 0.05}
+
 
 \subsubsection*{Problem 7.18 }
 \subsubsection*{a) Perform a BFL test using R; you must present results in usual hypothesis test format; $\alpha$ = 0.05}
