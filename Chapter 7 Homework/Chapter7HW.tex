@@ -133,8 +133,8 @@ Since our $\chi_0^{2} < \chi_{U}^{2}$ and out p-value $> \alpha$, we do not have
 Assume the Computer Group as Group 1 and Conventional Group as Group 2.  Since we are estimating a ratio of variances at the 0.95 Confidence Level, we will use the following equation: 
 \begin{eqnarray}
 C.I. = \left(\sqrt{\frac{s_{1}^{2}}{s_{2}^{2}}F_{1-\frac{\alpha}{2}, n_2 - 1, n_1 - 1}}, \sqrt{\frac{s_1^{2}}{s_2^{2}}F_{\frac{\alpha}{2}, n_{2}-1, n_{1}-1}}\right) \nonumber \\
-C.I. = \left(\sqrt{\frac{53.77^{2}}{36.94^{2}}\left(1.53\right)}, \sqrt{\frac{53.77^{2}}{36.94^{2}}\left(\frac{1}{1.53}\right)}\right) \nonumber \\
-C.I. \approx \left(0.0944, 1.8005\right) \nonumber \\
+C.I. = \left(\sqrt{\frac{53.77^{2}}{36.94^{2}}\left(1.58\right)}, \sqrt{\frac{53.77^{2}}{36.94^{2}}\left(\frac{1}{1.58}\right)}\right) \nonumber \\
+C.I. \approx \left(1.1580, 1.830\right) \nonumber \\
 \end{eqnarray}
 \end{blockquote}
 Conclusion/Interpretation:
@@ -257,7 +257,37 @@ Since our the absolute value of our Test Statistic is less than the t-value of o
 
 \subsubsection*{Problem 7.18 }
 \subsubsection*{a) Perform a BFL test using R; you must present results in usual hypothesis test format; $\alpha$ = 0.05}
+Hypotheses:
+\begin{blockquote}
+Since there are multiple groups, we will be using the BFL test for multiple variances.  \\
+$H_0: \sigma_W^{2} = \sigma_R^{2} = \sigma_Z^{2}$ \\
+$H_1$: at least one of these variances are different
+\end{blockquote}
 
+Assumptions:
+\begin{blockquote}
+1) The assumptions for ANOVA on our transformed response variable hold.
+\end{blockquote}
+
+Test Statistic:
+\begin{blockquote}
+We will turn to R's lawstat package and the lavene function set around the median to get our test statistic.  In this case, our test statistic is F = 1.4392.  
+\end{blockquote}
+
+Rejection Region:
+\begin{blockquote}
+To find the boundary of our Rejection Region, we will look up our F statistic at $\alpha$, t - 1, N - t.  That $F_{0.05, 2, 21}$ statistic is 3.47.  
+\end{blockquote}
+
+P-value:
+\begin{blockquote}
+Just like we got our test stat from R's 'lavene' function centered around the median, we will also get the p-value from there as well.  The p-value is 0.2596.  
+\end{blockquote}
+
+Conclusion/Interpretation:
+\begin{blockquote}
+Since our p-value is larger than 0.05 and our test statistic is less than the rejection region, we do not have extreme enough data to reject the hypothesis that the variances are equal.  It does not appear that at least one of the variances is different.  
+\end{blockquote}
 
 \includepdf[pages=-]{Chapter_7_Script.pdf}
 
