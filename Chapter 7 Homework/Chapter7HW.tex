@@ -134,7 +134,7 @@ Assume the Computer Group as Group 1 and Conventional Group as Group 2.  Since w
 \begin{eqnarray}
 C.I. = \left(\sqrt{\frac{s_{1}^{2}}{s_{2}^{2}}F_{1-\frac{\alpha}{2}, n_2 - 1, n_1 - 1}}, \sqrt{\frac{s_1^{2}}{s_2^{2}}F_{\frac{\alpha}{2}, n_{2}-1, n_{1}-1}}\right) \nonumber \\
 C.I. = \left(\sqrt{\frac{53.77^{2}}{36.94^{2}}\left(1.53\right)}, \sqrt{\frac{53.77^{2}}{36.94^{2}}\left(\frac{1}{1.53}\right)}\right) \nonumber \\
-C.I. \approx \left(0.0944, 1.8005\right)
+C.I. \approx \left(0.0944, 1.8005\right) \nonumber \\
 \end{eqnarray}
 \end{blockquote}
 Conclusion/Interpretation:
@@ -158,7 +158,7 @@ Assumptions:
 Test Statistic:
 \begin{eqnarray}
 F_0 = \frac{53.77^{2}}{36.94^{2}} \nonumber \\
-F_0 = 2.1188
+F_0 = 2.1188 \nonumber \\
 \end{eqnarray}
 
 
@@ -199,15 +199,60 @@ df = \frac{\left(\frac{s_{Comp}^{2}}{n_{Comp}}+\frac{s_{Conv}^{2}}{n_{Conv}}\rig
 df = \frac{\left(\frac{53.77^{2}}{91}+\frac{36.94^{2}}{91}\right)}{\frac{\left(\frac{53.77^{2}}{91}\right)^{2}}{90} + \frac{\left(\frac{36.94^{2}}{91}\right)^{2}}{90}} \nonumber \\
 df = \frac{31.7716 + 14.9952}{11.2159+2.4984} \nonumber \\
 df = \frac{46.7668}{13.7143} \nonumber \\
-df = 3.4101 \nonumber
+df = 3.4101 \nonumber \\
+df = 3 \nonumber
 \end{eqnarray}
-
+\begin{blockquote}
+Now that we have our degrees of freedom, we can find the C.I. for the difference in the two means.  
+\end{blockquote}
 \begin{eqnarray}
 C.I. = \left(\bar{y_{Comp}} - \bar{y_{Conv}}\right) \pm t_{\frac{\alpha}{2}, df}\sqrt{\frac{s_{Comp}^{2}}{n_{Comp}} + \frac{s_{Conv}^{2}}{n_{Conv}}} \nonumber \\
-C.I. = \left(484.45 - 487.38\right) \pm 
+C.I. = \left(484.45 - 487.38\right) \pm 3.182\sqrt{\frac{53.77}{91}^{2}+\frac{36.94}{91}^{2}} \nonumber \\
+C.I. = -2.93 \pm 3.182\sqrt{46.7668} \nonumber \\
+C.I. = -2.93 \pm 90.1468 \nonumber \\
+C.I. \approx \left(-93.0768, 87.2168\right) \nonumber \\
 \end{eqnarray}
+Conclusion/Interpretation:
+\begin{blockquote}
+We are 95\% confident that the difference in the mean SAT scores of the Computer group and Conventional test taking group is between -93.0768 and 87.2168.  
+\end{blockquote}
 
 \subsubsection*{d) Hypothesis test for $\mu_1 = \mu_2$; $\alpha$ = 0.05}
+Hypotheses:
+\begin{blockquote}
+Since we are checking the means of the two groups to see if they're equal, we will use Satterwaite's approximation to find the differences since the variances are still unequal from part b).  \\
+\indent $H_0: \mu_{Comp} - \mu_{Conv} = 0 $ \\
+\indent $H_1: \mu_{Comp} - \mu_{Conv} \neq 0 $
+\end{blockquote}
+Assumptions:
+\begin{blockquote}
+1) Independent Samples \\
+2) Unequal Variances \\
+\end{blockquote}
+
+Test Statistic:
+\begin{eqnarray}
+t_0 = \frac{\left(\bar{y_{Comp}}-\bar{y_{Conv}}\right) - D_0}{\sqrt{\frac{s_{Comp}^{2}}{n_{Comp}} + \frac{s_{Conv}^{2}}{n_{Conv}}}} \nonumber \\
+t_0 = \frac{\left(484.45-487.38\right)-0}{\sqrt{\frac{53.77^{2}}{91}+\frac{36.94^{2}}{91}}} \nonumber \\
+t_0 = \frac{-2.93}{\sqrt{46.7668}} \nonumber \\
+t_0 = \frac{-2.93}{6.8386} \nonumber \\
+t_0 = -0.4284 \nonumber 
+\end{eqnarray}
+
+Rejection Region:
+\begin{blockquote}
+In order to find the rejection boundary of our problem, we must check our a $t_{\frac{0.025}{2}, 3}$ .  The 3 came from the Satterwaite's df approximation above.  That t value = 3.182.     
+\end{blockquote}
+
+P-Value:
+\begin{blockquote}
+The p-value on a t score of -0.4284 is 0.3486.  This was derived from the pt function in R.    
+\end{blockquote}
+
+Conclusion/Interpretation:
+\begin{blockquote}
+Since our the absolute value of our Test Statistic is less than the t-value of our rejection bound of 3.182, there's not sufficient evident to reject the hypothesis that the two means are equal.  There does not seem to be evidence to suggest that the two group's mean scores are different.  
+\end{blockquote}
 
 
 \subsubsection*{Problem 7.18 }
