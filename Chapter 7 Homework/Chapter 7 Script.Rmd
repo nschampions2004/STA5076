@@ -4,8 +4,7 @@ author: "Kyle Ligon"
 date: "February 17, 2018"
 output: pdf_document
 ---
-
-Problem 7.7 b)
+###Problem 7.7 b)
 ```{r}
 #T_U
 qchisq((1-0.05)/2, 149)
@@ -17,7 +16,7 @@ qchisq(0.05/2, 149)
 (149)*(9.537^2)/(117.098)
 ```
 
-Problem 7.7 c)
+###Problem 7.7 c)
 ```{r}
 #chisquare value
 (149*9.537^2)/(9^2)
@@ -27,7 +26,7 @@ qchisq(0.99, 149)
 1-pchisq(167.3111, 149)
 ```
 
-Problem 7.16 a) and b)
+###Problem 7.16 a) and b)
 ```{r}
 f <- (53.77^2)/(36.94^2)
 sqrt((1.58*f))
@@ -38,7 +37,7 @@ f
 1- pf(2.1188, 90, 90)
 ```
 
-7.16 c) Satterwhaite's Approximation
+###7.16 c) Satterwhaite's Approximation
 ```{r}
 kk <- (53.77^2)/(91)
 kk
@@ -51,12 +50,12 @@ jj^2/90
 46.7668/13.7143
 ```
 
-7.16 d) p-value
+###7.16 d) p-value
 ```{r}
 pt(-0.4284, df = 3)
 ```
 
-7.18 BFL test for Wild Ranch and Zoo group
+###7.18 BFL test for Wild Ranch and Zoo group
 ```{r, message = F}
 library(lawstat)
 library(reshape2)

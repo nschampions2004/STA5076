@@ -82,7 +82,7 @@ C.I. \approx \left(92.0311, \sigma^{2}, 115.7338 \right) \nonumber \\
 
 Conclusion/Interpretation:
 \begin{blockquote}
-We are 95\% confidence that the Variance in the large public school system is between 92.0311 and 115.7338 points.  
+We are 95\% confidence that the Variance in the reading scores in the large public school system is between 92.0311 and 115.7338 points.  
 \end{blockquote}
 
 
@@ -134,20 +134,20 @@ Assume the Computer Group as Group 1 and Conventional Group as Group 2.  Since w
 \begin{eqnarray}
 C.I. = \left(\sqrt{\frac{s_{1}^{2}}{s_{2}^{2}}F_{1-\frac{\alpha}{2}, n_2 - 1, n_1 - 1}}, \sqrt{\frac{s_1^{2}}{s_2^{2}}F_{\frac{\alpha}{2}, n_{2}-1, n_{1}-1}}\right) \nonumber \\
 C.I. = \left(\sqrt{\frac{53.77^{2}}{36.94^{2}}\left(1.58\right)}, \sqrt{\frac{53.77^{2}}{36.94^{2}}\left(\frac{1}{1.58}\right)}\right) \nonumber \\
-C.I. \approx \left(1.1580, 1.830\right) \nonumber \\
+C.I. \approx \left(1.1580, 1.8300\right) \nonumber \\
 \end{eqnarray}
 \end{blockquote}
 Conclusion/Interpretation:
 \begin{blockquote}
-We are 95\% confident the true ratio of standard deviation's between the Computer test taking group and the Conventional test taking group lie between 0.0944 and 1.8005.  
+We are 95\% confident the true ratio of standard deviation's between the Computer test taking group and the Conventional test taking group lie between 1.1580 and 1.8300.  
 \end{blockquote}
 
 \subsubsection*{b) Hypothesis test for $\sigma_1 = \sigma_2$; $\alpha$ = 0.05}
 Hypotheses:
 \begin{blockquote}
 Since we want to check for equality amongst our standard deviations, we will use the statistical test for $\sigma_1^{2}$ and $\sigma_2^{2}$.  Group 1 will still be Computers, and Group 2 will be Conventional. \\
-$H_0: \sigma_{Comp} = \sigma_{Con}$ \\
-$H_1: \sigma_{Comp} \neq \sigma_{Con}$
+$H_0: \sigma_{Comp}^{2} = \sigma_{Conv}^{2}$ \\
+$H_1: \sigma_{Comp}^{2} \neq \sigma_{Conv}^{2}$
 \end{blockquote}
 \pagebreak
 Assumptions:
@@ -174,7 +174,9 @@ In order to arrive at the p-value for 2.1188 with $df_1$ and $df_2$ both being 9
 
 Conclusion/Interpretation:
 \begin{blockquote}
-Since our F statistic of 2.1188 is greater than our high end F Boundary of 1.53, there is sufficient evidence to reject the hypothesis that the population standard deviations are equal.  We have extreme enough evidence to appear that the population standard deviations are different between the group of students who took their exam on the computer and the group that took their test in a conventional method.  Using the p-value, we have evidence to point in the same direction.  This is because it is less than our $\frac{\alpha}{2}$ of 0.025.
+Since our F statistic of 2.1188 is greater than our high end F Boundary of 1.53, there is sufficient evidence to reject the hypothesis that the population variances are equal.  We have extreme enough evidence to appear that the population variances are different between the group of students who took their exam on the computer and the group that took their test in a conventional method.  Using the p-value, we have evidence to point in the same direction.  This is because it is less than our $\frac{\alpha}{2}$ of 0.025. 
+\linebreak
+\indent Since $\sigma=\sqrt{\sigma^{2}}$, we can conclude that the standard deviations of the populations are not equal, and that evidence suggests that the population standard deviations aren't equal.  
 \end{blockquote}
 
 
@@ -186,7 +188,7 @@ Due to the fact that we are dealing with unequal variances or unequal standard d
 
 Assumptions:
 \begin{blockquote}
-1) Independent Samples for both groups. 
+1) Independent Samples for both groups. \\
 2) We are assuming unequal variances hold from the problem b)
 \end{blockquote}
 
@@ -241,12 +243,12 @@ t_0 = -0.4284 \nonumber
 
 Rejection Region:
 \begin{blockquote}
-In order to find the rejection boundary of our problem, we must check our a $t_{\frac{0.025}{2}, 3}$ .  The 3 came from the Satterwaite's df approximation above.  That t value = 3.182.     
+In order to find the rejection boundary of our problem, we must check our  $t_{\frac{0.05}{2}, 3}$ .  The 3 came from the Satterwaite's df approximation above.  That t value = 3.182.     
 \end{blockquote}
 
 P-Value:
 \begin{blockquote}
-The p-value on a t score of -0.4284 is 0.3486.  This was derived from the pt function in R.    
+The p-value on a t score = -0.4284 is 0.3486.  This was derived from the pt function in R.    
 \end{blockquote}
 
 Conclusion/Interpretation:
