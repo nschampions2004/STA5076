@@ -1,0 +1,46 @@
+---
+title: "Chapter 8 And 9"
+author: "Kyle Ligon"
+date due: "March 18, 2018"
+output: pdf_document
+---
+9.13 a) Checking the results from Proc Mixed in order to do ANOVA
+
+
+```{r, message = FALSE, echo = FALSE}
+library(tidyverse)
+library(grid)
+library(gridExtra)
+library(kableExtra)
+a_1 <- c(12.4, 10.7, 11.9, 11.0, 12.4, 12.3, 13.0, 12.5, 11.2, 13.1)
+a_2 <- c(9.1, 11.5, 11.3, 9.7, 13.2, 10.7, 10.6, 11.3, 11.1, 11.7)
+a_3 <- c(8.5, 11.6, 10.2, 10.9, 9.0, 9.6, 9.9, 11.3, 10.5, 11.2)
+a_4 <- c(12.7, 13.2, 11.8, 11.9, 12.2, 11.2, 13.7, 11.8, 12.2, 11.7)
+s <- c(8.7, 9.3, 8.2, 8.3, 9.0, 9.4, 9.2, 12.2, 8.5, 9.9)
+data <- cbind(a_1, a_2, a_3, a_4, s)
+frame <- data.frame(matrix(data, ncol = 5, nrow = 10, byrow = F))
+colnames(frame) <- c("a_1", "a_2", "a_3", "a_4", "s")
+gather_frame <- gather(data = frame, key = "treatment", value = "wt_loss")
+anova_mod <- aov(wt_loss ~ treatment, data = gather_frame)
+y <- quantile(anova_mod$residuals[!is.na(anova_mod$residuals)], c(0.25, 0.75))
+x <- qnorm(c(0.25, 0.75))
+slope = diff(y)/diff(x)
+int <- y[1L] - slope*x[1L]
+norm_res <- ggplot(data = anova_mod, aes(x = anova_mod$residuals)) + geom_histogram(bins = 6) + xlab("Residuals") + ggtitle("Residuals")
+resid_jitter <- ggplot(data = anova_mod, aes(x = anova_mod$fitted.values, y = anova_mod$residuals)) + geom_jitter() +  xlab("Group Mean") + ylab("Residuals") + ggtitle("Residuals vs. Predicted Mean")
+qq <- ggplot(data = anova_mod) + stat_qq(aes(sample = anova_mod$residuals), alpha = 0.5) + 
+    geom_abline(slope = slope, intercept = int, color = "blue") + ggtitle("Q-Q Plot")
+res_sum <- as.table(summary(anova_mod$residuals), nrow= 2, ncol = 6)
+grid.arrange(resid_jitter, norm_res, qq, nrow = 2, ncol = 2)
+```
+
+9.13 b) Perform ANOVA test on the data: Show ANOVA Table First, then Run the Test
+```{r}
+anova_mod
+summary(anova_mod)
+```
+9.13 c) Perform Tukey's W on the significant pairs
+```{r}
+real_w <- TukeyHSD(anova_mod, ordered = TRUE)
+real_w$treatment
+```
