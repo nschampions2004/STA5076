@@ -16,6 +16,7 @@
 \usepackage{amsmath}
 \usepackage{pdfpages}
 \usepackage{enumitem}
+\usepackage{caption}
 
 \setcounter{secnumdepth}{4}
 
@@ -68,7 +69,15 @@ In order to proceed with ANOVA, we must check for the following pieces:
 	\item[$\bullet$] Normal shape to the Residual Histogram.
  	\item[$\bullet$] Residuals fit along the linear prediction of our Actual "Normality" to the Theoretical Normal Model.  
 \end{itemize}
-Since there is no readily see-able pattern in our residuals, our distribution is mound shaped despite collection of residuals near positive 1, and our Residuals fit the along the Q-Q plot(although, there may be evidence of a right skew), we will proceed with ANOVA to see if at least one mean is different.  
+
+Since there is no readily observable pattern in our residuals, our distribution is mound shaped, and our Residuals fit the along the Q-Q plot(although, there may be evidence of a right skew), we will proceed with ANOVA to see if at least one mean is different.  
+
+\begin{figure}[h]
+\centering
+\includegraphics[width = 1.0\textwidth]{AnovaCheck.png}
+\end{figure}
+
+\pagebreak
 
 \subsubsection*{ b) Perform ANOVA to determine if there is a difference among the five weight-reducing agents, $\alpha$ = 0.05.} 
 \begin{table}[ht]
@@ -105,7 +114,6 @@ Conclusion/Interpretation:
 Since our $F_{0} > 5.72$, there is strong enough evidence to support rejecting the null hypothesis that the means are the same.  The data provided does suggest at least one mean is different from the rest.  
 \end{blockquote}
 
-\pagebreak
 
 \subsubsection*{ c) Determine significantly different pairs using Tukey's W with $\alpha$ = 0.05}
 \begin{blockquote}
@@ -117,9 +125,50 @@ With our Tukey W test being run, the differences lie in the following means:
 \end{blockquote}
 
 \begin{itemize}[leftmargin=+0.5in]
-	\item[$\bullet$] s differs with $a_{1}$, $a_{2}$, and $a_{4}$
-	\item[$\bullet$] $a_{1}$ differs with $a_{3}$
+	\item[$\bullet$] S differs with $A_{1}$, $A_{2}$, and $A_{4}$
+	\item[$\bullet$] $A_{3}$ differs with $A_{1}$ and $A_{4}$
 \end{itemize}
+
+\pagebreak
+
+\subsubsection*{ d) Determine which, if any, of the new agents have significantly larger mean weight loss as compared to the standard agent; $\alpha$ = 0.05}
+
+\begin{blockquote} 
+Using s as our control, we will performs Dunnett's test to determine if there's a significantly larger difference with the new agents.  The first step in checking out if any of the new agents are yielding better weight loss results is to find Dunnett's D.  
+\end{blockquote}
+
+\begin{eqnarray}
+D = d_{\alpha}(k,v)\sqrt{\frac{2s^{2}_{W}}{n}} \nonumber \\ 
+D = d_{0.05}(4,45)\sqrt{\frac{2(0.982)}{10}} \nonumber \\
+D = 2.23\sqrt{\frac{1.964}{10}} \nonumber \\
+D = 2.23(0.4432) \nonumber \\
+D = 0.9888 \nonumber
+\end{eqnarray}
+
+\begin{table}[h]
+\caption{Dunnett's Control Test}
+\centering
+\begin{tabular}{c c c c}
+\hline\hline
+Treatment & $\bar{y}_{i}-\bar{y}_{c}$ & Comparison & Conclusion \\ [0.5ex] 
+\hline
+a1 & 2.78 & $>$ D & Greater Than Control \\
+a2 & 1.75 & $>$ D & Greater Than Control \\
+a3 & 1.00 & $>$ D & Greater Than Control \\ 
+a4 & 2.97 & $>$ D & Greater Than Control \\ [1ex]
+\hline
+\end{tabular}
+\label{table:nonlin}
+\end{table}    
+
+Conclusion/Interpretation:
+\begin{blockquote}
+All four of the agents are statistically significant. Thus, we can reject the null hypotheses that the difference in weight loss metrics between the original agent(s) and the new agents($a_{1}, a2, a3, and a4$) is zero.  
+\end{blockquote}
+
+\subsubsection{9.17 - construct the contrasts}
+
+
 
 
 
