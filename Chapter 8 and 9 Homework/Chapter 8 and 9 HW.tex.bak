@@ -163,10 +163,10 @@ a4 & 2.97 & $>$ D & Greater Than Control \\ [1ex]
 
 Conclusion/Interpretation:
 \begin{blockquote}
-All four of the agents are statistically significant. Thus, we can reject the null hypotheses that the difference in weight loss metrics between the original agent(s) and the new agents($a_{1}, a2, a3, and a4$) is zero.  
+All four of the agents are statistically significant. Thus, we can reject the null hypotheses that the difference in weight loss metrics between the original agent(s) and the new agents($a_{1}, a_{2}, a_{3},$ and $a_{4}$) is zero.  Each of the new agents appear to have an increase in weight loss over the agent s.    
 \end{blockquote}
 
-\subsubsection{9.17 - construct the contrasts}
+\subsubsection*{9.17 - construct the contrasts}
 
 
 
