@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.6.30)  13 MAR 2018 21:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.6.30)  17 MAR 2018 22:19
 entering extended mode
 **"./Chapter 8 and 9 HW.tex"
 ("Chapter 8 and 9 HW.tex"
@@ -413,6 +413,9 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 26.
 
 LaTeX Warning: Label `table:nonlin' multiply defined.
 
+
+LaTeX Warning: Label `table:nonlin' multiply defined.
+
 )
 \openout1 = `"Chapter 8 and 9 HW.aux"'.
 
@@ -530,114 +533,144 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 68.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<AnovaCheck.png, id=7, 712.91344pt x 429.10312pt>
+<AnovaCheck.png, id=3, 712.91344pt x 429.10312pt>
 File: AnovaCheck.png Graphic file (type png)
  <use AnovaCheck.png>
 Package pdftex.def Info: AnovaCheck.png used on input line 77.
 (pdftex.def)             Requested size: 469.75502pt x 282.74405pt.
  [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
 
- <./AnovaCheck.png>] [2]
-<Chapter_8_And_9.pdf, id=28, 614.295pt x 794.97pt>
-File: Chapter_8_And_9.pdf Graphic file (type pdf)
- <use Chapter_8_And_9.pdf>
-Package pdftex.def Info: Chapter_8_And_9.pdf used on input line 175.
-(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+ <./AnovaCheck.png>] [2] [3]
+<827AnovaCheck.png, id=31, 542.025pt x 406.51875pt>
+File: 827AnovaCheck.png Graphic file (type png)
+ <use 827AnovaCheck.png>
+Package pdftex.def Info: 827AnovaCheck.png used on input line 186.
+(pdftex.def)             Requested size: 375.80544pt x 281.86288pt.
+
+[4 <./827AnovaCheck.png>] <Chapter_8_And_9.pdf, id=39, 614.295pt x 794.97pt>
 File: Chapter_8_And_9.pdf Graphic file (type pdf)
 
 <use Chapter_8_And_9.pdf>
-Package pdftex.def Info: Chapter_8_And_9.pdf used on input line 175.
+Package pdftex.def Info: Chapter_8_And_9.pdf used on input line 251.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: Chapter_8_And_9.pdf Graphic file (type pdf)
+ <use Chapter_8_And_9.pdf>
+Package pdftex.def Info: Chapter_8_And_9.pdf used on input line 251.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
 
-<Chapter_8_And_9.pdf, id=31, page=1, 614.295pt x 794.97pt>
+<Chapter_8_And_9.pdf, id=42, page=1, 614.295pt x 794.97pt>
 File: Chapter_8_And_9.pdf Graphic file (type pdf)
 
 <use Chapter_8_And_9.pdf, page 1>
-Package pdftex.def Info: Chapter_8_And_9.pdf, page1 used on input line 175.
+Package pdftex.def Info: Chapter_8_And_9.pdf, page1 used on input line 251.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
 File: Chapter_8_And_9.pdf Graphic file (type pdf)
  <use Chapter_8_And_9.pdf, page 1>
-Package pdftex.def Info: Chapter_8_And_9.pdf, page1 used on input line 175.
+Package pdftex.def Info: Chapter_8_And_9.pdf, page1 used on input line 251.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
- [3]
+ [5]
 File: Chapter_8_And_9.pdf Graphic file (type pdf)
 
 <use Chapter_8_And_9.pdf, page 1>
-Package pdftex.def Info: Chapter_8_And_9.pdf, page1 used on input line 175.
+Package pdftex.def Info: Chapter_8_And_9.pdf, page1 used on input line 251.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Chapter_8_And_9.pdf Graphic file (type pdf)
  <use Chapter_8_And_9.pdf, page 1>
-Package pdftex.def Info: Chapter_8_And_9.pdf, page1 used on input line 175.
+Package pdftex.def Info: Chapter_8_And_9.pdf, page1 used on input line 251.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Chapter_8_And_9.pdf Graphic file (type pdf)
 
 <use Chapter_8_And_9.pdf, page 1>
-Package pdftex.def Info: Chapter_8_And_9.pdf, page1 used on input line 175.
+Package pdftex.def Info: Chapter_8_And_9.pdf, page1 used on input line 251.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
- [4 <./Chapter_8_And_9.pdf>]
-<Chapter_8_And_9.pdf, id=79, page=2, 614.295pt x 794.97pt>
+ [6 <./Chapter_8_And_9.pdf>]
+<Chapter_8_And_9.pdf, id=87, page=2, 614.295pt x 794.97pt>
 File: Chapter_8_And_9.pdf Graphic file (type pdf)
 
 <use Chapter_8_And_9.pdf, page 2>
-Package pdftex.def Info: Chapter_8_And_9.pdf, page2 used on input line 175.
+Package pdftex.def Info: Chapter_8_And_9.pdf, page2 used on input line 251.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Chapter_8_And_9.pdf Graphic file (type pdf)
  <use Chapter_8_And_9.pdf, page 2>
-Package pdftex.def Info: Chapter_8_And_9.pdf, page2 used on input line 175.
+Package pdftex.def Info: Chapter_8_And_9.pdf, page2 used on input line 251.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: Chapter_8_And_9.pdf Graphic file (type pdf)
 
 <use Chapter_8_And_9.pdf, page 2>
-Package pdftex.def Info: Chapter_8_And_9.pdf, page2 used on input line 175.
+Package pdftex.def Info: Chapter_8_And_9.pdf, page2 used on input line 251.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
- [5 <./Chapter_8_And_9.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 176.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 176.
+ [7 <./Chapter_8_And_9.pdf>]
+<Chapter_8_And_9.pdf, id=103, page=3, 614.295pt x 794.97pt>
+File: Chapter_8_And_9.pdf Graphic file (type pdf)
+
+<use Chapter_8_And_9.pdf, page 3>
+Package pdftex.def Info: Chapter_8_And_9.pdf, page3 used on input line 251.
+(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+File: Chapter_8_And_9.pdf Graphic file (type pdf)
+ <use Chapter_8_And_9.pdf, page 3>
+Package pdftex.def Info: Chapter_8_And_9.pdf, page3 used on input line 251.
+(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+File: Chapter_8_And_9.pdf Graphic file (type pdf)
+
+<use Chapter_8_And_9.pdf, page 3>
+Package pdftex.def Info: Chapter_8_And_9.pdf, page3 used on input line 251.
+(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+ [8 <./Chapter_8_And_9.pdf>]
+<Chapter_8_And_9.pdf, id=118, page=4, 614.295pt x 794.97pt>
+File: Chapter_8_And_9.pdf Graphic file (type pdf)
+
+<use Chapter_8_And_9.pdf, page 4>
+Package pdftex.def Info: Chapter_8_And_9.pdf, page4 used on input line 251.
+(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+File: Chapter_8_And_9.pdf Graphic file (type pdf)
+ <use Chapter_8_And_9.pdf, page 4>
+Package pdftex.def Info: Chapter_8_And_9.pdf, page4 used on input line 251.
+(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+File: Chapter_8_And_9.pdf Graphic file (type pdf)
+
+<use Chapter_8_And_9.pdf, page 4>
+Package pdftex.def Info: Chapter_8_And_9.pdf, page4 used on input line 251.
+(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+ [9 <./Chapter_8_And_9.pdf>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 252.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 252.
 
 ("Chapter 8 and 9 HW.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 176.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 176.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 252.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 252.
+Package rerunfilecheck Info: File `"Chapter 8 and 9 HW".out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
-
-Package rerunfilecheck Warning: File `"Chapter 8 and 9 HW".out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"Chapter 8 and 9 HW".out':
-(rerunfilecheck)             Before: B9189F2B9B0D3AD62F9E747F425F5E7B;76
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 176.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 252.
  ) 
 Here is how much of TeX's memory you used:
- 9595 strings out of 493335
- 141619 string characters out of 3136665
- 249202 words of memory out of 3000000
- 12993 multiletter control sequences out of 15000+200000
+ 9609 strings out of 493335
+ 141906 string characters out of 3136665
+ 250223 words of memory out of 3000000
+ 13001 multiletter control sequences out of 15000+200000
  6857 words of font info for 27 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,18n,46p,348b,450s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{subsubsection.0.0.1} has been referenced but does
- not exist, replaced by a fixed one
-
-<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C
-:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/
-Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Pr
-ogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Prog
-ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program
- Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Fi
-les (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files 
-(x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x
-86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files (x86)
-/MiKTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/
-fonts/type1/public/lm/lmr17.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/
-public/lm/lmri12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/l
-mtk10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmtt10.pfb>
-Output written on "Chapter 8 and 9 HW.pdf" (5 pages, 269386 bytes).
+ 40i,18n,46p,423b,448s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
+<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C
+:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/
+Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Pr
+ogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Progr
+am Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program 
+Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program File
+s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files 
+(x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files (x8
+6)/MiKTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files (x86)/MiKTeX 2.
+9/fonts/type1/public/lm/lmr17.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
+1/public/lm/lmri12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm
+/lmtk10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmtt10.pfb
+>
+Output written on "Chapter 8 and 9 HW.pdf" (9 pages, 299098 bytes).
 PDF statistics:
- 132 PDF objects out of 1000 (max. 8388607)
- 11 named destinations out of 1000 (max. 500000)
- 39 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 162 PDF objects out of 1000 (max. 8388607)
+ 16 named destinations out of 1000 (max. 500000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

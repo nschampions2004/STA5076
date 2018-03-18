@@ -168,8 +168,84 @@ All four of the agents are statistically significant. Thus, we can reject the nu
 
 \subsubsection*{9.17 - construct the contrasts}
 
+\subsubsection*{a) Assess ANOVA assumptions using the graph from PROC MIXED}
+In order to proceed with ANOVA, we must check for the following pieces:
+\begin{itemize}[leftmargin=+.5in]
+ 	\item[$\bullet$] No obvious pattern in our Residual Scatterplot
+	\item[$\bullet$] Normal shape to the Residual Histogram.
+ 	\item[$\bullet$] Residuals fit along the linear prediction of our Actual "Normality" to the Theoretical Normal Model.  
+\end{itemize}
+
+There appears to be a pattern in the residuals.  The best way to describe the pattern is a increasing fan shape at the edges.  There is an increase in the residuals as you are on the extremes of the means of each group.  Finally, a pattern in the Q-Q plot has this sample data straying from the Normal model by mismatching the Normal model outside of the -1 and + 1.5 standard deviations.     
+
+\pagebreak
 
 
+\begin{figure}[h]
+\centering
+\includegraphics[width = 0.8\textwidth]{827AnovaCheck.png}
+\end{figure}
+
+
+\subsubsection*{b) Run an ANOVA on the data to see if there is a difference in the suppliers}
+\begin{table}[ht]
+\caption{ANOVA Table for Supplier's Variability in Power}
+\centering
+\begin{tabular}{l c c c c c}
+\hline\hline
+Row Names & SS & df & MS & F & P-Value \\ [0.5ex] 
+\hline
+Suppliers (S) & 28024 & 4 & 7006 & 865.9 & $<$ 2x$10^{-16}$ \\
+Error (E) & 1054 & 40 & 26 & \\
+Total & 29078 & 44 &  \\ [1ex]
+\hline
+\end{tabular}
+\label{table:nonlin}
+\end{table}
+Hypotheses:
+\begin{blockquote}
+$H_{0}: \mu_{S1} = \mu_{S2} = \mu_{S3} = \mu_{S4} = \mu_{S5}$ \\
+$H_{1}:$ At least one mean is different.  
+\end{blockquote}
+
+Test Statistic:
+\begin{blockquote}
+F = 865.9
+\end{blockquote}
+
+Rejection Region:
+\begin{blockquote}
+Reject $H_{0}$ if $F_{0} > F_{\alpha,4,20}$
+$F_{0.05,4,25}$ = 5.80
+\end{blockquote}
+
+Conclusion/Interpretation:
+\begin{blockquote}
+With a test statistic greater than the rejection bound, there does seem to extreme enough evidence to reject the null hypothesis that the means are equal.  It does appear that at least one mean is different.  
+\end{blockquote}
+
+\subsubsection*{c) Perform a Kruskal-Wallis test to determine if there is a difference among the suppliers; $\alpha$ = 0.05}
+Hypothesis:
+\begin{blockquote}
+$H_{0}$: There is no difference among the five suppliers with respect to median Variability in Power. \\
+$H_{1}$: At least one of the five suppliers' medians differs from the others.   
+\end{blockquote}
+
+Test Statistic:
+\begin{blockquote}
+H = 41.596 with 4 degrees of freedom and a p-value of 2.023x$10^{-8}$
+\end{blockquote}
+
+Rejection Region:
+\begin{blockquote}
+We will reject if H $> \chi_{0.05, 4}^{2}$ \\
+$\chi_{0.05, 4}^{2} = 9.488$
+\end{blockquote}
+
+Conclusion/Interpretation
+\begin{blockquote}
+Since our Test Statistic is greater than 9.488, we have significant evidence to reject the Null Hypothesis that the all the medians are the same.  There does appear to be at least one median that is different than the rest.   
+\end{blockquote}
 
 
 \includepdf[pages=-]{Chapter_8_And_9.pdf}

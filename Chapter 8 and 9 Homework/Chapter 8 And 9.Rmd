@@ -12,6 +12,7 @@ library(tidyverse)
 library(grid)
 library(gridExtra)
 library(kableExtra)
+library(multcomp)
 a1 <- c(12.4, 10.7, 11.9, 11.0, 12.4, 12.3, 13.0, 12.5, 11.2, 13.1)
 a2 <- c(9.1, 11.5, 11.3, 9.7, 13.2, 10.7, 10.6, 11.3, 11.1, 11.7)
 a3 <- c(8.5, 11.6, 10.2, 10.9, 9.0, 9.6, 9.9, 11.3, 10.5, 11.2)
@@ -56,10 +57,62 @@ plot(real_w)
 ```
 
 9.13 d) Use Dunnett's to see if any of the new agents have significantly larger mean weights loss as compared to the standard agent.  alpha = 0.05
-```{r}
+```{r, echo = FALSE}
 Dunnett <- glht(anova_mod, linfct = mcp(treatment = c("a1-s=0", 
                                                       "a2-s=0",
                                                       "a3-s=0",
                                                       "a4-s=0")))
 summary(Dunnett)
 ```
+
+
+```{r, echo = FALSE}
+su1 <- c(191.9, 189.1, 190.9, 183.8, 185.5, 190.9, 192.8, 188.4, 189.0)
+su2 <- c(178.2, 174.1, 170.3, 171.6, 171.7, 174.7, 176.0, 176.6, 172.8)
+su3 <- c(156.6, 158.4, 157.7, 154.1, 152.3, 161.5, 158.1, 150.9, 156.9)
+su4 <- c(125.8, 132.4, 132.2, 133.0, 133.2, 125.9, 132.9, 142.6, 135.5)
+su5 <- c(218.6, 208.4, 187.1, 199.5, 202.0, 211.1, 197.6, 204.4, 206.8)
+
+lenses_dat <- data.frame(matrix(c(su1, su2, su3, su4, su5), nrow = 5, ncol = 9, byrow = TRUE))
+colnames(lenses_dat) <- c("Sample1", "Sample2", "Sample3", "Sample4", "Sample5", "Sample6", "Sample7", "Sample8", "Sample9")
+lenses_dat$Supplier <- c("Supplier1", "Supplier2", "Supplier3", "Supplier4", "Supplier5")
+gather_lenses <- lenses_dat %>%
+                  gather(key = "sample", value = "lov", -Supplier)
+
+gather_lenses$Supplier <- factor(gather_lenses$Supplier)
+anova_lenses <- aov(lov ~ Supplier, data = gather_lenses)
+z <- quantile(anova_lenses$residuals[!is.na(anova_lenses$residuals)], c(0.25, 0.75))
+w <- qnorm(c(0.25, 0.75))
+slope = diff(z)/diff(w)
+int <- z[1L] - slope*w[1L]
+
+
+norm_res_lenses <- ggplot(data = anova_lenses, aes(x = anova_lenses$residuals)) + geom_histogram(bins = 6) + xlab("Residuals") + ggtitle("Residuals")
+
+
+resid_jitter_lenses <- ggplot(data = anova_lenses, aes(x = anova_lenses$fitted.values, y = anova_lenses$residuals)) + geom_jitter() +  xlab("Group Mean") + ylab("Residuals") + ggtitle("Residuals vs. Predicted Mean")
+
+
+qq_lenses <- ggplot(data = anova_lenses) + stat_qq(aes(sample = anova_lenses$residuals), alpha = 0.5) + 
+    geom_abline(slope = slope, intercept = int, color = "blue") + ggtitle("Q-Q Plot")
+
+
+res_sum <- as.table(summary(anova_lenses$residuals), nrow= 2, ncol = 6)
+grid.arrange(resid_jitter_lenses, norm_res_lenses, qq_lenses, nrow = 2, ncol = 2)
+```
+
+b) Perform an Anova
+```{r}
+anova_lenses
+summary(anova_lenses)
+```
+
+```{r}
+kruskal.test(x = gather_lenses$lov, g = gather_lenses$Supplier)
+```
+
+
+
+
+
+
