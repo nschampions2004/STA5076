@@ -106,13 +106,29 @@ b) Perform an Anova
 anova_lenses
 summary(anova_lenses)
 ```
-
+c) Run a Kruskal-Wallis
 ```{r}
-kruskal.test(x = gather_lenses$lov, g = gather_lenses$Supplier)
+kw_lenses <- kruskal.test(lov ~ Supplier, data = gather_lenses)
+kw_lenses
+kw_lenses$statistic
 ```
 
-
-
-
+d) Use Tukey's W to find out which pairs are significantly different.
+```{r}
+real_lenses <- TukeyHSD(anova_lenses, ordered = TRUE)
+real_lenses$treatment
+plot(real_lenses)
+real_lenses$Supplier
+```
+f) Run a KW pairwise comparison on the different suppliers to see if there's a difference in variability of power
+```{r}
+ranks_1 <- c(39,32, 33, 28, 29, 34, 35, 31, 36)
+ranks_2 <- c(19, 20, 21, 22, 23, 24, 25, 26, 27)
+ranks_3 <- c(10, 11, 12, 13, 14, 15, 16, 17, 18)
+ranks_4 <- c(1, 2, 3, 4, 5, 6, 7, 8, 9)
+ranks_5 <- c(38, 39, 30, 40, 41, 42, 43, 44, 45)
+ranks_table = data.frame(cbind(ranks_1, ranks_2, ranks_3, ranks_4, ranks_5))
+colnames(ranks_table) <- c("Ranks_Group1", "Ranks_Group2", "Ranks_Group3", "Ranks_Group4", "Ranks_Group5")
+```
 
 
