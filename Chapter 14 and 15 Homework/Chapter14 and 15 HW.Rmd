@@ -57,4 +57,90 @@ qf(0.95, 1, 56)
 anova_mod_noI <- aov(data = frame, formula = att_spans ~ ageGroup + products)
 ```
 
+(e) Report significantly different pairs using Tukey's W and $\alpha$ = 0:05; REMEMBER: if there is an interaction present, we must account for that when performing post-hoc testing
+```{r, warning= FALSE, message = FALSE}
+# if there was an interaction, we would do this.  
+frame_Tukey <- frame %>%
+                mutate(Combination = paste0(ageGroup, "-", products))
+new_anova_mod <- aov(data = frame_Tukey, formula = att_spans ~ Combination)
+
+TukeyHSD(new_anova_mod)
+
+#but since there's not, we can just do the Tukey W on the old ANOVA model
+TukeyHSD(anova_mod_noI)
+```
+From this we can tell that a2 and a3 differes from a1.  Additionally, p2 is different from p1.  
+
+15.10 (a) Assess ANOVA assumptions using the graph from PROC MIXED.
+
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE}
+# creating the data frame
+car_model <- c(rep("cm1", 1), rep("cm2", 1), rep("cm3",1), rep("cm4", 1))
+driver <- c(rep("d1",4), rep("d2", 4), rep("d3", 4), rep("d4", 4))
+seed <- c("A", "B", "C", "D", "B", "C", "D", "A", "C", "D", "A", "B", "D", "A", "B", "C")
+mileage <- c(15.5, 16.3, 10.5, 14.0, 33.8, 26.4, 31.5, 34.5, 13.7, 19.1, 17.5, 19.7, 29.2, 22.5, 30.1, 21.6)
+petrol <- data.frame(car_model, driver, seed, mileage)
+
+petrol <- petrol %>%
+            mutate(car_model = as.factor(car_model), 
+                   driver = as.factor(driver),
+                   seed = as.factor(seed)) %>%
+            arrange(car_model)
+
+
+petrol_anova_mod <- aov(data = petrol, formula = mileage ~ car_model + driver + seed)
+y1 <- quantile(petrol_anova_mod$residuals[!is.na(petrol_anova_mod$residuals)], c(0.25, 0.75))
+x1 <- qnorm(c(0.25, 0.75))
+slope1 = diff(y1)/diff(x1)
+int1 <- y1[1L] - slope1*x1[1L]
+
+
+norm_res1 <- ggplot(data = petrol_anova_mod, aes(x = petrol_anova_mod$residuals)) + geom_histogram(bins = 6) + xlab("Residuals") + ggtitle("Residuals")
+
+
+resid_jitter1 <- ggplot(data = petrol_anova_mod, aes(x = petrol_anova_mod$fitted.values, y = petrol_anova_mod$residuals)) + geom_jitter() +  xlab("Group Mean") + ylab("Residuals") + ggtitle("Residuals vs. Predicted Mean")
+
+
+qq1 <- ggplot(data = petrol_anova_mod) + stat_qq(aes(sample = petrol_anova_mod$residuals), alpha = 0.5) + 
+    geom_abline(slope = slope1, intercept = int1, color = "blue") + ggtitle("Q-Q Plot")
+
+
+res_sum1 <- as.table(summary(petrol_anova_mod$residuals), nrow= 2, ncol = 6)
+grid.arrange(resid_jitter1, norm_res1, qq1, nrow = 2, ncol = 2)
+
+```
+(c) If there is a difference per part (b), use Tukey's W to determine the significantly different pairs; $\alpha$ = 0:05
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+TukeyHSD(petrol_anova_mod)
+```
+e) Determine if there is a difference between gasoline blends using ANOVA for completely randomized designs (i.e., ignore the blocking factors); $\alpha$ = 0:05}
+
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE}
+pretrol_noBlock <- aov(data = petrol, formula = mileage ~ seed)
+y2 <- quantile(pretrol_noBlock$residuals[!is.na(pretrol_noBlock$residuals)], c(0.25, 0.75))
+x2 <- qnorm(c(0.25, 0.75))
+slope2 = diff(y2)/diff(x2)
+int2 <- y2[1L] - slope2*x2[1L]
+
+
+norm_res2 <- ggplot(data = pretrol_noBlock, aes(x = pretrol_noBlock$residuals)) + geom_histogram(bins = 6) + xlab("Residuals") + ggtitle("Residuals")
+
+
+resid_jitter2 <- ggplot(data = pretrol_noBlock, aes(x = pretrol_noBlock$fitted.values, y = pretrol_noBlock$residuals)) + geom_jitter() +  xlab("Group Mean") + ylab("Residuals") + ggtitle("Residuals vs. Predicted Mean")
+
+
+qq2 <- ggplot(data = pretrol_noBlock) + stat_qq(aes(sample = pretrol_noBlock$residuals), alpha = 0.5) + 
+    geom_abline(slope = slope, intercept = int, color = "blue") + ggtitle("Q-Q Plot")
+
+
+res_sum <- as.table(summary(pretrol_noBlock$residuals), nrow= 2, ncol = 6)
+grid.arrange(resid_jitter2, norm_res2, qq2, nrow = 2, ncol = 2)
+
+summary(pretrol_noBlock)
+
+qf(0.95, 3, 12)
+
+```
 
