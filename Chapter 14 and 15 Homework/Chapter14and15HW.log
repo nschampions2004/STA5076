@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.6.30)  1 APR 2018 15:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.6.30)  1 APR 2018 16:08
 entering extended mode
 **./Chapter14and15HW.tex
 (Chapter14and15HW.tex
@@ -409,17 +409,7 @@ Package caption Info: hyperref package is loaded.
 Package hyperref Info: Option `colorlinks' set `true' on input line 26.
 \tindent=\skip67
 
-(Chapter14and15HW.aux
-
-LaTeX Warning: Label `table:nonlin' multiply defined.
-
-
-LaTeX Warning: Label `table:nonlin' multiply defined.
-
-
-LaTeX Warning: Label `table:nonlin' multiply defined.
-
-)
+(Chapter14and15HW.aux)
 \openout1 = `Chapter14and15HW.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
@@ -668,14 +658,14 @@ Package rerunfilecheck Info: File `Chapter14and15HW.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 282.
  ) 
 Here is how much of TeX's memory you used:
  9618 strings out of 493335
  142098 string characters out of 3136665
- 250227 words of memory out of 3000000
+ 250086 words of memory out of 3000000
  13006 multiletter control sequences out of 15000+200000
  6857 words of font info for 27 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -695,7 +685,7 @@ x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files (x86
 lmri12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmtk10.pfb>
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmtt10.pfb><C:/Program
  Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmtti10.pfb>
-Output written on Chapter14and15HW.pdf (10 pages, 339161 bytes).
+Output written on Chapter14and15HW.pdf (10 pages, 339164 bytes).
 PDF statistics:
  186 PDF objects out of 1000 (max. 8388607)
  19 named destinations out of 1000 (max. 500000)

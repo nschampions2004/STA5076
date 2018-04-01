@@ -59,7 +59,7 @@
 
 \begin{document}
 \section*{Chapter 14 and 15 Homework}
-\subsection*{Due 4-8-2018}
+\subsection*{Due 4-1-2018}
 \subsubsection*{Problem 14.8}
 \subsubsection*{ (a) Assess ANOVA assumptions using the graph from PROC MIXED.}
 The most concerning plot is the scatterplot with an apparent pattern as you increase the Group Mean.  Though, with a wonky residual histogram and Q-Q Plot that is overpredicting at the extremes this data does not appear to fit a trustworthy ANOVA scenario.  
@@ -268,11 +268,14 @@ Since our test statistic is less than the Rejection bound, we fail to reject the
 
 \subsubsection*{(e) Compare the MSE from part (b) to the MSE from part (e) - what happens when we ignore the blocking factors?}
 \begin{blockquote}
-The $MSE_{Brand}$ for the LSD was 35.42.  The $MSE_{Brand}$ for the ANOVA not blocked on Car Model and Driver was 35.4239.  Although their MSE are very similar, their difference lies in their $df_{error}$.  Since we split    
-
+The $MSE_{Brand}$ for the LSD was 35.42.  The $MSE_{Brand}$ for the ANOVA not blocked on Car Model and Driver was 35.4239.  Although their MSE are very similar, their difference lies in their $df_{error}$.  Since we split on Car Model and Driver in the first group, it allows for less error to be absorbed by the error term.     
 \end{blockquote}
 
 \subsubsection*{(f) Which would you say is the appropriate analysis?}
+\begin{blockquote}
+You could base this answer based solely on the PROC MIXED graphs for each group.  The winner would be the ANOVA including the blocking factors.  When we don't account for the blocking factors, the PROC MIXED graphs hardly represent a normal situation lending its resultant analysis null and void.  
+\end{blockquote}
+
 
 \includepdf[pages=-]{Chapter14_and_15_HW.pdf}
 

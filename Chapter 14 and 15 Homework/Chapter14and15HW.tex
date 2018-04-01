@@ -59,7 +59,7 @@
 
 \begin{document}
 \section*{Chapter 14 and 15 Homework}
-\subsection*{Due 4-8-2018}
+\subsection*{Due 4-1-2018}
 \subsubsection*{Problem 14.8}
 \subsubsection*{ (a) Assess ANOVA assumptions using the graph from PROC MIXED.}
 The most concerning plot is the scatterplot with an apparent pattern as you increase the Group Mean.  Though, with a wonky residual histogram and Q-Q Plot that is overpredicting at the extremes this data does not appear to fit a trustworthy ANOVA scenario.  
@@ -88,7 +88,7 @@ Total & 6190.9 & 59 &  \\ [1ex]
 \label{table:nonlin}
 \end{table}
 
-Check the Interaction, Reject if $F_{Interaction} > F_{\alpha, df_{Interaction}, df_{Error}}$:
+Check the Interaction; Reject if $F_{Interaction} > F_{\alpha, df_{Interaction}, df_{Error}}$:
 \begin{blockquote}
 $F_{Interaction} = 0.873 < 3.1682 = F_{0.05, 2, 54}$ \\
 Thus, the interaction is not significant and can be removed from the model.  
@@ -99,7 +99,7 @@ Thus, the interaction is not significant and can be removed from the model.
 
 Dealing with the Interaction Term
 \begin{blockquote}
-Since the Interaction term of AgeGroup:Products is not significant ($> F_{0.05, 2, 54} = 3.1682$), we will remove it from our ANOVA model and just look at the Main Effects.
+Since the Interaction term of AgeGroup:Products is not significant ($< F_{0.05, 2, 54} = 3.1682$), we will remove it from our ANOVA model and just look at the Main Effects.
 \end{blockquote}
 
 
@@ -122,7 +122,7 @@ Total & 6191 & 59 &  \\ [1ex]
 \label{table:nonlin}
 \end{table}
 
-Checking to see if the F Statistics Are Greater Than $F_{\alpha, df_{Main Effect}, df_{Error}}$
+Checking to see if the F Statistics Are Greater Than $F_{\alpha, df_{Main Effect}, df_{Error}}$:
 \begin{eqnarray}
 F_{Age Group} = 13.28 > 3.1619 = F_{\alpha, df_{Main Effect}, df_{Error}}  \nonumber \\
 F_{Products} = 13.28 > 4.0130 = F_{\alpha, df_{Main Effect}, df_{Error}}  \nonumber 
@@ -145,7 +145,7 @@ Conclusion/Interpretation:
 With out Tukey W test being run, the differences lie in the following means:
 \end{blockquote}
 \begin{itemize}[leftmargin=+0.5in]
-	\item[$\bullet$] $a_{2}$ and $a_{3}$ differs from $a_{1}$
+	\item[$\bullet$] $a_{2}$ and $a_{3}$ differ from $a_{1}$
 	\item[$\bullet$] $p_{2}$ differs from $p_{1}$
 \end{itemize}
 
@@ -169,8 +169,8 @@ With a Residual scatter plot that does not have a readily apparent pattern, a Re
 Row Names & SS & df & MS & F & P-Value \\ [0.5ex] 
 \hline 
 Treatment/Gasoline Brand & 106.3 & 3 & 35.42 & 8.218 & 0.0151 \\
-Row/Car Model & 8.3 & 3 & 2.78 & 0.644 & 0.6143 \\
-Column/Driver & 755.4 & 3 & 251.79 & 58.412 & 7.84x$10^{-5}$ \\ 
+Column/Car Model & 8.3 & 3 & 2.78 & 0.644 & 0.6143 \\
+Row/Driver & 755.4 & 3 & 251.79 & 58.412 & 7.84x$10^{-5}$ \\ 
 Error & 25.9 & 6 & 4.31 \\
 Total & 895.9 & 15 &  \\ [1ex]
 \hline
@@ -196,7 +196,7 @@ Reject if $F_{0} \geq F_{\alpha, df_{trt}, df_{error}}; F_{\alpha, df_{trt}, df_
 
 Conclusion/Interpretation:
 \begin{blockquote}
-Since 8.218 $\geq$ 4.7571, we have strong enough evidence to reject the hypothesis that the means are the same.  There is evidence to suggest at least on mean is different from the others.  
+Since 8.218 $\geq$ 4.7571, we have strong enough evidence to reject the hypothesis that the means are the same.  There is evidence to suggest at least one mean is different from the others.  
 \end{blockquote}
 
 \subsubsection*{(c) If there is a difference per part (b), use Tukey's W to determine the significantly different pairs; $\alpha$ = 0:05}
