@@ -1,9 +1,144 @@
 ---
-title: "EDA of Baltimore Crime Data"
-output: html_notebook
+author: "Kyle Ligon"
+title: "Initial Analysis"
+output:
+  pdf_document: default
+  html_document: default
 ---
 
-```{r}
 
+
+###Read the data in and library calls
+```{r, message = FALSE, warning = FALSE}
+library(tidyverse)
+library(zoo)
+library(lubridate)
+
+crime <- read_csv("BPD_Part_1_Victim_Based_Crime_Data.csv", progress = FALSE)
 ```
+
+###Looking at the data
+```{r}
+head(crime)
+
+names(crime)
+```
+Looks like we have information about the crime, where it happened, when it happened, what happened in the form of Description, and the responding Post.  
+
+###Counting up the Number of Crimes
+```{r}
+descCounts <- crime %>%
+                group_by(Description) %>%
+                tally() %>%
+                arrange(desc(n))
+descCounts
+```
+
+###Counting up Where the Crimes Occurred
+```{r}
+hoodCounts <- crime %>%
+                group_by(Neighborhood) %>%
+                tally() %>%
+                arrange(desc(n))
+head(hoodCounts)
+```
+Let's focus on Arsons.  Particurlarly, let's see if the number of Arsons committed in one month are more varied in the winter months than in the other nine months of the year.  For this I will:
+
+\begin{itemize} 
+
+\item Summarize the number of arsons by month
+
+\item Run an F test on number of arsons between the two groups
+
+\item Write a conclusion for the test
+
+\end{itemize}
+
+###1)	Are the distributions of arsons in in the Northeastern District in the winter months less varied that other 9 months?
+```{r, warning = FALSE, message = FALSE}
+arsons <- crime %>%
+            filter(Description == "ARSON")
+head(arsons)
+```
+
+Checking the dimensions of the new frame
+```{r}
+dim(arsons)
+```
+```{r, echo = FALSE, message = FALSE}
+arsons_grouped <- arsons %>%
+                      mutate(CrimeDate = as.Date(CrimeDate, format = "%m/%d/%Y"),
+                             YearMon = as.yearmon(CrimeDate)) %>%
+                      group_by(YearMon) %>%
+                      summarize(TotalIncidents = sum(`Total Incidents`)) %>%
+                      ungroup() %>%
+                      mutate(WinterBin = ifelse(substr(YearMon, 1, 3) %in%  c("Dec", "Jan", "Feb"), "Winter",
+                                                "SprSumFall"))
+ggplot(data = arsons_grouped, aes(x = TotalIncidents)) + geom_histogram(bins = 6) + facet_wrap(~ WinterBin)
+
+var_W <- arsons_grouped %>% filter(WinterBin == "Winter") %>% summarize(Variance = var(TotalIncidents))
+var_SSF <- arsons_grouped %>% filter(WinterBin != "Winter") %>% summarize(Variance = var(TotalIncidents))
+```
+With normal distributions, we will proceed with the hypotheses.
+
+Variance of the Winter Months
+```{r, message = FALSE, warning = FALSE}
+#degrees of freedom for W 
+arsons_grouped %>% filter(WinterBin == "Winter") %>% tally() - 1
+
+var_W
+```
+
+Variance of the Other Months
+```{r, message = FALSE, warning = FALSE}
+arsons_grouped %>% filter(WinterBin != "Winter") %>% tally() - 1
+
+var_SSF
+```
+
+Test Statistic for F Test
+```{r, warning = FALSE, message = FALSE}
+f <- as.numeric(round(var_W/var_SSF, 4))
+f
+```
+
+Rejection Region
+```{r, warning = FALSE, message = FALSE}
+qf(0.95, 16, 51)
+
+f > qf(0.95, 16, 51)
+```
+Since our F Test Statistic is not larger than the F Stat for alpha, we do not have enough evidence to reject the null hypothesis that the variances are equal.  It does not appear that the the Winter months experience a less varied number of arsons than the other 9 months.  
+
+###Are there more Auto Thefts on Weekdays or Weeknights?  
+```{r, message = FALSE, warning = FALSE}
+auto_thefts <- crime %>%
+                filter(Description %in% c("ROBBERY - CARJACKING", "AUTO THEFT"))
+head(auto_thefts)
+```
+```{r}
+names(auto_thefts)
+at_form <- auto_thefts %>%
+                  mutate(CrimeDate= as.Date(CrimeDate, format = "%m/%d/%Y"), 
+                         DateName = wday(CrimeDate, label = TRUE))
+weekend <- at_form %>%
+              filter(DateName %in% c("Sat", "Sun"))
+weekday <- at_form %>%
+              filter(!(DateName %in% c("Sat", "Sun")))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
