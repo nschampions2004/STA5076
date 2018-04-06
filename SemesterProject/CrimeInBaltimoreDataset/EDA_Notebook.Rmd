@@ -189,17 +189,24 @@ lower
 -1.5301 < lower
 ```
 
-
 Conclusion:
 Since -1.5301 is greater than our rejection region, we do not have enough proof to reject our null hypothesis that the means are the same.  It does not appear that the there are more Auto thefts on weekends in comparison to weekdays.  
 
 
+### 3)	On a given night are there more shootings inside a residence or outside?
+```{r, message = FALSE, warning = FALSE}
+shootings <- crime %>%
+#              mutate(CrimeTime = strptime(CrimeTime, format = "%H:%M")) %>%
+              filter(Description == "SHOOTING", CrimeTime > "17:00") %>%
+              group_by(CrimeDate, `Inside/Outside`) %>%
+              summarize(Count = sum(`Total Incidents`))
+head(shootings)
+dim(shootings)
 
-
-
-
-
-
-
-
+ggplot(shootings, aes(x = Count)) + geom_histogram() + facet_grid(~ `Inside/Outside`)
+```
+With non-normal distributions, our route that we should run down is to check to see if the medians are difference between the two groups. Using the Wilcoxon Rank Sum test, we'll see what if the outisde median is larger than the inside median.  
+```{r, warning = FALSE, message = FALSE}
+wilcox.test(Count ~ `Inside/Outside`, data = shootings)
+```
 
