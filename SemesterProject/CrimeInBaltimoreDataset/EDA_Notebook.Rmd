@@ -54,7 +54,7 @@ Let's focus on Arsons.  Particurlarly, let's see if the number of Arsons committ
 
 \end{itemize}
 
-###1)	Are the distributions of arsons in in the Northeastern District in the winter months less varied that other 9 months?
+###1)	Are the distributions of arsons in the winter months less varied that other 9 months?
 ```{r, warning = FALSE, message = FALSE}
 arsons <- crime %>%
             filter(Description == "ARSON")
@@ -79,7 +79,11 @@ ggplot(data = arsons_grouped, aes(x = TotalIncidents)) + geom_histogram(bins = 6
 var_W <- arsons_grouped %>% filter(WinterBin == "Winter") %>% summarize(Variance = var(TotalIncidents))
 var_SSF <- arsons_grouped %>% filter(WinterBin != "Winter") %>% summarize(Variance = var(TotalIncidents))
 ```
-With normal distributions, we will proceed with the hypotheses.
+With "normal" distributions, we will proceed with the hypotheses.
+
+Hypotheses:
+H_0: var_Winter = var_SprSumFall
+H_1: var_Winter < var_SprSumFall
 
 Variance of the Winter Months
 ```{r, message = FALSE, warning = FALSE}
@@ -104,33 +108,90 @@ f
 
 Rejection Region
 ```{r, warning = FALSE, message = FALSE}
-qf(0.95, 16, 51)
-
-f > qf(0.95, 16, 51)
+qf(0.975, 16, 51)
+f < qf(0.025, 16, 51)
+f > qf(0.975, 16, 51)
 ```
-Since our F Test Statistic is not larger than the F Stat for alpha, we do not have enough evidence to reject the null hypothesis that the variances are equal.  It does not appear that the the Winter months experience a less varied number of arsons than the other 9 months.  
+Since our F Test Statistic is not larger and not smaller than the F Stat for alpha, we do not have enough evidence to reject the null hypothesis that the variances are equal.  It does not appear that the the Winter months experience a less varied number of arsons than the other 9 months.  
 
-###Are there more Auto Thefts on Weekdays or Weeknights?  
+###Are there more Auto Thefts on Weekends over Weekdays?  
 ```{r, message = FALSE, warning = FALSE}
 auto_thefts <- crime %>%
                 filter(Description %in% c("ROBBERY - CARJACKING", "AUTO THEFT"))
 head(auto_thefts)
 ```
-```{r}
-names(auto_thefts)
+```{r, message= FALSE, warning = FALSE}
 at_form <- auto_thefts %>%
                   mutate(CrimeDate= as.Date(CrimeDate, format = "%m/%d/%Y"), 
                          DateName = wday(CrimeDate, label = TRUE))
 weekend <- at_form %>%
-              filter(DateName %in% c("Sat", "Sun"))
+              filter(DateName %in% c("Sat", "Sun")) %>%
+              group_by(CrimeDate, DateName) %>%
+              summarize(Count = sum(`Total Incidents`))
+              
 weekday <- at_form %>%
-              filter(!(DateName %in% c("Sat", "Sun")))
+              filter(!(DateName %in% c("Sat", "Sun"))) %>%
+              group_by(CrimeDate, DateName) %>%
+              summarize(Count = sum(`Total Incidents`))
+
+ggplot(data = weekday, aes(x = Count)) + geom_histogram() + ggtitle("Weekday Distribution")
+ggplot(data = weekend, aes(x = Count)) + geom_histogram() + ggtitle("Weekend Distribution")
+```
+
+With our data cleaned, we can now go about testing to see if the mean of the weekend set is larger than the mean of the weekday set.  But first... equal variance check.  Which, is just an F test:
+
+H_0: Var_Weekday = var_Weekend
+H_1: var_Weekday < var_weekend
+```{r, warning=FALSE, message = FALSE}
+#Weekday Variance
+var(weekday$Count)
+#df of Weekday
+nrow(weekday)-1
+#Weekend Variance
+var(weekend$Count)
+#df of Weekends
+nrow(weekend)-1
+```
+
+Test Statistic
+```{r, warning = FALSE, message = FALSE}
+f_w <- var(weekday$Count)/var(weekend$Count)
+f_w
+```
+
+Rejection Region:
+```{r, message= FALSE, warning = FALSE}
+up <- qf(0.975, 1479, 591) 
+up
+dwn <- qf(0.025, 1479, 591)
+dwn
+```
+
+```{r, warning = FALSE, message = FALSE}
+f_w > up
+f_w < dwn
+```
+Conclusion: Since our F Stat was less than the upper rejection region and more than the lower rejections region, we do not have enough evidence to reject the hypothesis that the variances are equal.  It does not appear that the variances are different.   Now we can test the means.  
+
+Hypotheses:
+H_0: mean_weekday = mean_weekend
+H_1: mean_weekday < mean_weekend
+
+Test Statistic:
+```{r, warning = FALSE, message = FALSE}
+t.test(x = weekday$Count, y = weekend$Count)
+```
+Rejection Region
+```{r, warning = FALSE, message = FALSE}
+lower <- qt(0.05, 2070)
+lower
+
+-1.5301 < lower
 ```
 
 
-
-
-
+Conclusion:
+Since -1.5301 is greater than our rejection region, we do not have enough proof to reject our null hypothesis that the means are the same.  It does not appear that the there are more Auto thefts on weekends in comparison to weekdays.  
 
 
 
