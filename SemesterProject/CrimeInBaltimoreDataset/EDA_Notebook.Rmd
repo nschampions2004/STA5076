@@ -210,3 +210,26 @@ With non-normal distributions, our route that we should run down is to check to 
 wilcox.test(Count ~ `Inside/Outside`, data = shootings)
 ```
 
+###4)	On a given day if you are assaulted Downtown s it more likely to be a common assault or aggravated assault? 
+```{r, message = FALSE, warning = FALSE}
+assaults <- crime %>%
+              filter(Description %in% c("AGG. ASSAULT", "COMMON ASSAULT")) %>%
+              select(CrimeDate, Description, `Total Incidents`) %>%
+              group_by(CrimeDate, Description) %>%
+              summarize(Total = sum(`Total Incidents`)) %>%
+              ungroup()
+
+day_merge <- assaults %>%
+              group_by(CrimeDate) %>%
+              summarize(Count = sum(Total))
+
+assaults <- assaults %>%
+              group_by(CrimeDate) %>%
+              left_join(day_merge) %>%
+              mutate(percent = Total/Count) %>%
+              ungroup() %>%
+              mutate(CrimeDate = as.Date(CrimeDate, format = "%m/%d/%Y")) %>%
+              arrange(desc(CrimeDate))
+
+ggplot(data = assaults, aes(x =percent)) + geom_histogram() + facet_grid(~Description)
+```
