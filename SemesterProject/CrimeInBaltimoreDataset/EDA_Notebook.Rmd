@@ -13,6 +13,7 @@ output:
 library(tidyverse)
 library(zoo)
 library(lubridate)
+library(gridExtra)
 
 crime <- read_csv("BPD_Part_1_Victim_Based_Crime_Data.csv", progress = FALSE)
 ```
@@ -114,7 +115,7 @@ f > qf(0.975, 16, 51)
 ```
 Since our F Test Statistic is not larger and not smaller than the F Stat for alpha, we do not have enough evidence to reject the null hypothesis that the variances are equal.  It does not appear that the the Winter months experience a less varied number of arsons than the other 9 months.  
 
-###Are there more Auto Thefts on Weekends over Weekdays?  
+### 2) Are there more Auto Thefts on Weekends over Weekdays?  
 ```{r, message = FALSE, warning = FALSE}
 auto_thefts <- crime %>%
                 filter(Description %in% c("ROBBERY - CARJACKING", "AUTO THEFT"))
@@ -193,7 +194,7 @@ Conclusion:
 Since -1.5301 is greater than our rejection region, we do not have enough proof to reject our null hypothesis that the means are the same.  It does not appear that the there are more Auto thefts on weekends in comparison to weekdays.  
 
 
-### 3)	On a given night are there more shootings inside a residence or outside?
+### 3)	On a given night are there more shootings inside a residence than outside?
 ```{r, message = FALSE, warning = FALSE}
 shootings <- crime %>%
 #              mutate(CrimeTime = strptime(CrimeTime, format = "%H:%M")) %>%
@@ -205,12 +206,34 @@ dim(shootings)
 
 ggplot(shootings, aes(x = Count)) + geom_histogram() + facet_grid(~ `Inside/Outside`)
 ```
-With non-normal distributions, our route that we should run down is to check to see if the medians are difference between the two groups. Using the Wilcoxon Rank Sum test, we'll see what if the outisde median is larger than the inside median.  
+With non-normal distributions, our route that we should run down is to check to see if the medians are different between the two groups. Using the Wilcoxon Rank Sum test, we'll see what if the outisde median is larger than the inside median.  
+
+Hypothesis:
+H_0: M_Inside = M_Outside
+H_1: M_Inside > M_Outside
 ```{r, warning = FALSE, message = FALSE}
-wilcox.test(Count ~ `Inside/Outside`, data = shootings)
+w <- wilcox.test(Count ~ `Inside/Outside`, data = shootings, alternative = "greater")
 ```
 
-###4)	On a given day if you are assaulted Downtown s it more likely to be a common assault or aggravated assault? 
+Test Statistic
+```{r, warning = FALSE, message = FALSE}
+w$statistic
+```
+
+Rejection Region
+```{r, warning = FALSE, echo= FALSE}
+w$p.value < 0.05
+```
+
+Conclusion/Interpretation:
+Since our p-value is greater than 0.05, we do not have enough evidence to reject the null hypothesis that the Medians are the same.  It does not appear the there are more shootings inside a residence than outside.  
+
+###4)	On a given day if you are assaulted,  is it more likely to be a common assault? 
+
+Hypotheses:
+H_0: Mean_aggAssault = Mean_CommonAssault
+H_1: Mean_aggAssault < Mean_CommonAssault
+
 ```{r, message = FALSE, warning = FALSE}
 assaults <- crime %>%
               filter(Description %in% c("AGG. ASSAULT", "COMMON ASSAULT")) %>%
@@ -233,3 +256,90 @@ assaults <- assaults %>%
 
 ggplot(data = assaults, aes(x =percent)) + geom_histogram() + facet_grid(~Description)
 ```
+```{r, message = FALSE, warning = FALSE}
+assaults_split <- t.test(formula = percent ~ Description, data = assaults, alternative = "less")
+```
+Test Statistic/p-value
+```{r, message = FALSE, warning = FALSE}
+assaults_split$statistic
+
+assaults_split$p.value
+```
+
+Conclusion:
+Since our p-value is less than 0.05, we have sufficient evidence to reject the null hypothesis that the means are the same.  It appears that the Mean percent of the Aggravated Assault group is less than the Mean percent of the Common Assault.  
+
+###5)	Is there a District with a distinctly higher number of Burglary's in the Summer Months?  If so, which are significantly different?  
+H_0: means are all the same
+H_1: at least one mean is different
+```{r, message = FALSE, warning = FALSE}
+summer_burglaries <- crime %>%
+                      filter(substr(CrimeDate, 1,1) %in% c('6','7','8'), Description == "BURGLARY") %>%
+                      mutate(CrimeDate <- as.Date(CrimeDate, format = "%m/%d/%Y")) %>%
+                      mutate(YearMon = as.yearmon(CrimeDate,  "%m/%d/%Y")) %>%
+                      group_by(District, YearMon) %>%
+                      summarize(Count = sum(`Total Incidents`)) %>%
+                      filter(District != "NA") %>%
+                      ungroup()
+
+ggplot(data= summer_burglaries, aes(x = Count)) + geom_histogram() + facet_wrap(~ District)
+```
+
+Test Choice:
+Since there is a mess of distributions that appear to fit an ANOVA model, I'll use the ANOVA test to see if there's one mean that's different.  
+```{r, message = FALSE, warning = FALSE}
+summer_burglaries <- summer_burglaries %>%
+                      mutate(District = as.factor(District))
+
+
+sum_burg_anova_check <- aov(Count ~ District, data = summer_burglaries)
+
+y <- quantile(sum_burg_anova_check$residuals[!is.na(sum_burg_anova_check$residuals)], c(0.25, 0.75))
+x <- qnorm(c(0.25, 0.75))
+slope = diff(y)/diff(x)
+int <- y[1L] - slope*x[1L]
+
+
+norm_res <- ggplot(data = sum_burg_anova_check, aes(x = sum_burg_anova_check$residuals)) + geom_histogram(bins = 6) + xlab("Residuals") + ggtitle("Residuals")
+
+
+resid_jitter <- ggplot(data = sum_burg_anova_check, aes(x = sum_burg_anova_check$fitted.values, y = sum_burg_anova_check$residuals)) + geom_jitter() +  xlab("Group Mean") + ylab("Residuals") + ggtitle("Residuals vs. Predicted Mean")
+
+
+qq <- ggplot(data = sum_burg_anova_check) + stat_qq(aes(sample = sum_burg_anova_check$residuals), alpha = 0.5) + 
+    geom_abline(slope = slope, intercept = int, color = "blue") + ggtitle("Q-Q Plot")
+
+
+res_sum <- as.table(summary(sum_burg_anova_check$residuals), nrow= 2, ncol = 6)
+grid.arrange(resid_jitter, norm_res, qq, nrow = 2, ncol = 2)
+```
+
+Checking ANOVA/Test Statistic/p-value
+```{r, message = FALSE, warning = FALSE}
+summary(sum_burg_anova_check)
+```
+
+Since our p-value is considerably less than 0.05, we can conclude that it appears that one mean is different than the other.  We will proceed with Tukey's HSD to show which district is different from another.  
+
+```{r, message = FALSE, warning = FALSE}
+thsd_sum_burg <- TukeyHSD(sum_burg_anova_check)
+thsd_sum_burg
+```
+
+\begin{itemize} 
+
+\item The Northeastern District has distinctly larger number of burglaries than all other groups.
+
+\item The Northwestern District has a distinctly larger number of burglaries than the Western, Northern, and Eastern.
+
+\item The Southern District has a distinctly larger number of burglaries in the Summer months over the Central, Eastern, and the Southwest.
+
+\item The Southwest District has a distinctly larger number of burglaries in the Summer months over the Eastern, Northern, and the Western districts.  
+
+\item The Western District has a distinctly larger number of burglaries in the Summer months over the Northern and southern Districts.
+
+\item The Nothern District has a distincly larger number of burglaries in the Summer months over the Central and Eastern Districts.  
+
+\item The Southeastern District has a distinctly larger number of burglaries in the Summer months over the Central and Eastern Districts.
+
+\end{itemize}
