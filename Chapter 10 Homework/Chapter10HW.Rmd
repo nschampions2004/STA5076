@@ -10,18 +10,78 @@ a) Would it be appropriate to use a normal approximation in conducting a
 statistical test of the research hypothesis that over half of persons suffering
 from chonic pain are over 50 years of age?
 ```{r, message= FALSE, warning = FALSE}
-
+(424/800)*(800) > 5
+(376/800)*(800) > 5
 ```
+Yes, it is appropriate.  
+
 
 b)Using the data in the survey, is there substantial evidence ($\alpha$ = 0.05) 
 that more than half of persons suffering from chronic pain are over 50 years
 of age?
 ```{r, warning = FALSE, message = FALSE}
-
+old <- prop.test(x = 484, n = 800, p = 0.5, alternative =  "greater", correct = FALSE)
+old
 ```
 
 c) Place a 95% confidence interval on the proportion of person suffering from 
 chronic pain that are over 50 years of age.  
 ```{r, warning = FALSE, message = FALSE}
+0.605 - 1.96*(sqrt(0.605*0.395/800))
+0.605 + 1.96*(sqrt(0.605*0.395/800))
+```
+
+10.18
+a) Place a 95% confidence interval on p1-p2, the difference in the proportions of customers purchasing lawnmowers with and without the warranty.  
+```{r, warning=FALSE, message = FALSE}
+mower <- prop.test(x = c(10, 4), n = c(25, 25), alternative = "two.sided", 
+                   correct = FALSE)
+mower$conf.int
+```
+
+b) Test the research hypothesis that offering the warranty will increase the proportion of customers who will purchase a mower.  Use $\alpha$ = 0.05.  
+```{r, warning = FALSE, message = FALSE}
+mower.test <- prop.test(x = c(10,4), n = c(25,25), alternative = "greater",
+                        correct = FALSE)
+mower.test
+```
+
+c) Are the conditions for using a large-sample test to answer the question in part b) satisfied?  If not, apply an exact procedue.  
+```{r, warning = FALSE, message = FALSE}
+0.4*25 > 5
+0.6*25 > 5
+0.16*25 > 5
+0.84*25 > 5
+
+x <- matrix(c(10, 4, 15, 21), byrow = FALSE, nrow = 2, ncol = 2)
+fisher.test(x, alternative = "greater")
+```
+
+d) Based on your results from parts a) and b), should the dealer offer the warranty?
+The dealer should not offer the warranty.  The test stat isn't statistically significant at alpha = 0.05.   
+
+
+10.42 (b,d)
+b) Is the promotion decision for the fireman related to the age of the fireman? Use $\alpha$ = 0.05.
+```{r, message = FALSE, warning = FALSE}
+
+
+```
+
+
+d) What are some other variables, besides agem that needed to be addressed in an age discrimination analysis?  
+```{r, message = FALSE, warning = FALSE}
+
+
+```
+
+10.43
+a) Is the age of the fireman related to whethere or not the firmae is promoted?  Use $\alpha$ = 0.05.  
+```{r, message = FALSE, warning = FALSE}
+
+```
+
+b) Is your conclusion concerning age discrimination different from your conclusion using the data in Exercise 10.42?  
+```{r, message = FALSE, warning = FALSE}
 
 ```
