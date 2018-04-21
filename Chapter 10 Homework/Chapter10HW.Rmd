@@ -1,0 +1,27 @@
+---
+title: "Chapter 10 HW"
+author: "Kyle Ligon"
+date: "April 27, 2018"
+output: pdf_document
+---
+
+10.14
+a) Would it be appropriate to use a normal approximation in conducting a
+statistical test of the research hypothesis that over half of persons suffering
+from chonic pain are over 50 years of age?
+```{r, message= FALSE, warning = FALSE}
+
+```
+
+b)Using the data in the survey, is there substantial evidence ($\alpha$ = 0.05) 
+that more than half of persons suffering from chronic pain are over 50 years
+of age?
+```{r, warning = FALSE, message = FALSE}
+
+```
+
+c) Place a 95% confidence interval on the proportion of person suffering from 
+chronic pain that are over 50 years of age.  
+```{r, warning = FALSE, message = FALSE}
+
+```
