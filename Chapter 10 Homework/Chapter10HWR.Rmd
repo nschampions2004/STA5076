@@ -42,7 +42,7 @@ mower$conf.int
 b) Test the research hypothesis that offering the warranty will increase the proportion of customers who will purchase a mower.  Use $\alpha$ = 0.05.  
 ```{r, warning = FALSE, message = FALSE}
 mower.test <- prop.test(x = c(10,4), n = c(25,25), alternative = "greater",
-                        correct = FALSE)
+                        correct = TRUE)
 mower.test
 ```
 
@@ -64,24 +64,25 @@ The dealer should not offer the warranty.  The test stat isn't statistically sig
 10.42 (b,d)
 b) Is the promotion decision for the fireman related to the age of the fireman? Use $\alpha$ = 0.05.
 ```{r, message = FALSE, warning = FALSE}
+promote <- matrix(c(9, 41, 29, 39, 34, 46, 12, 38), nrow = 2, ncol = 4)
+promote
 
-
+promote_chi <- chisq.test(x = promote)
+promote_chi
 ```
 
 
-d) What are some other variables, besides agem that needed to be addressed in an age discrimination analysis?  
-```{r, message = FALSE, warning = FALSE}
-
-
-```
+d) What are some other variables, besides age that needed to be addressed in an age discrimination analysis?  
+I believe sex/gender, years with the department, and number of previous promotions are adequate variables to split this data on.  
 
 10.43
-a) Is the age of the fireman related to whethere or not the firmae is promoted?  Use $\alpha$ = 0.05.  
+a) Is the age of the fireman related to whether or not the fireman is promoted?  Use $\alpha$ = 0.05.  
 ```{r, message = FALSE, warning = FALSE}
+new_promote <- matrix(c(38, 80, 46, 84), nrow = 2, ncol = 2)
 
+chi_promote <- chisq.test(x = new_promote, correct = )
+chi_promote
 ```
 
 b) Is your conclusion concerning age discrimination different from your conclusion using the data in Exercise 10.42?  
-```{r, message = FALSE, warning = FALSE}
-
-```
+Yes, with a p-value greater than 0.05, it does not appear that the age group is different for promotion potential.  However, I am suspect of lumping everyone into one group that is below 40 years of age.  
