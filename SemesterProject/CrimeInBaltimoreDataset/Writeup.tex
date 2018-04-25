@@ -84,12 +84,12 @@ $H_{1}: \sigma_{Winter}^{2} > \sigma_{SprSumWin}^{2}$ \\
 \indent \textbf{Test 2:} Are there more Auto Thefts on Weekends over Weekdays?
 
 $H_{0}: \mu_{Weekend} = \mu_{Weekday}$ \\
-$H_{1}: \mu_{Weekend} = \mu_{Weekday}$ \\
+$H_{1}: \mu_{Weekend} > \mu_{Weekday}$ \\
 
 \indent \textbf{Test 3:} On a given night are there more shootings inside a residence than outside?  
 
 $H_{0}: M_{Inside} = M_{Outside}$ \\
-$H_{1}: M_{Inside} > M_{Outside}$ \\
+$H_{1}: M_{Inside} < M_{Outside}$ \\
 
 \indent \textbf{Test 4:} On any given day, if you are assaulted, is it more likely to be a common assault?  
 
@@ -114,6 +114,7 @@ $H_{1}:$ At least one mean is different.  \\
 Once divided, I calculated the variances and degrees of freedom for each group.  Finally, I found the F statistic(F = 0.5954) for our variance pair.  With the test statistic in hand, I calculated the Rejection region and compared the Test Statistic to its value.  The test statistic being lower than the rejection region, we did not have sufficient evidence to reject the hypothesis that the count of Arsons in the Winter months are different for the other three seasons.  It does not appear to show a change in variation.   
 \end{blockquote}
 
+\newpage
 
 \indent \textbf{Test 2:} Are there more Auto Thefts on Weekends over Weekdays?  
 
@@ -124,19 +125,20 @@ I filtered down the whole table down to 28,366 robberies, carjackings, and auto 
 
 \indent \indent \textbf{Statistical Test(s)}
 \begin{blockquote}
-With "normal-ish" distributions, I went about testing the variances to make sure they were not unequal.  I used the F test to make sure the test statistic was under the rejection region.  The F test turned up not to be statistically significant.  \\
+With normal distributions, I went about testing the variances to make sure they were not unequal.  I used the F test to make sure the test statistic was under the rejection region.  The F test turned up not to be statistically significant.  \\
+\\
 With the variances checked, I tested the means with a t-test.  When the t-test yielded a value of -1.503, I determined it wasn't statistically significant at the 95\% level.  I did not have proof that auto thefts increase on the weekends.  
 \end{blockquote}
 
-\indent \textbf{Test 3:} On a given night are there more shootings inside a residence than outside?
+\indent \textbf{Test 3:} On a given night are there more shootings outside a residence than inside?
 
 \indent \indent \textbf{Data Cleaning}
 \begin{blockquote}
-To begin, I took the data set down to just shootings after 5 PM of each day.  Upon filtering, I summed up each group of inside and outside shootings by date.  After grouping, I looked at the bar graphs to see what distribution this scenario fits.  Given the fact that they were skewed right, I chose the Wilcoxon Rank Sum test to determing if one group was shifted farther to the right than the other.     
+To begin, I took the data set down to just shootings after 5 PM of each day.  Upon filtering, I summed up each group of inside and outside shootings by date.  After grouping, I looked at the bar graphs to see what distribution this scenario fits.  Given the fact that they were skewed right, I chose the Wilcoxon Rank Sum test to determine if one group was shifted farther to the right than the other.     
 \end{blockquote}
 \indent \indent \textbf{Statistical Test}
 \begin{blockquote}
-After determining the test, I ran the Wilcoxon Tank Sum test on the data and arrived at a p-value 
+After determining the test, I ran the Wilcoxon Tank Sum test on the data and arrived at a p-value of $3.6623x10^{-23}$.  Therefore, there is evidence to reject the null hypothesis that the median number of Shootings inside and outside of a building on a given night are the same.  It appears there are more shootings outside a residence at night than inside.   
 \end{blockquote}
 \indent \textbf{Test 4:} On a given day if you are assaulted,  is it more likely to be a common assault?
 
@@ -146,7 +148,7 @@ To arrive at probabilities of Common vs. Aggravated Assaults, I filtered the cri
 \end{blockquote}
 \indent \indent \textbf{Statistical Test}
 \begin{blockquote}
-With normally distributed distributions, I took to evaluating if the mean of the probability of falling victim to a common assault was less than that of an aggravated assault.  I used a t-test to evaluate if that was the case.  The results came back statistically significant with a test statatistic of -80.1927.  It does appear that, if one is assaulted, they are more likely to be assaulted in the form of a Common Assault as opposed to an Aggravated Assault.  
+With normally distributed distributions, I took to evaluating if the mean of the probability of falling victim to a common assault was less than that of an aggravated assault.  I used a t-test to evaluate if that was the case.  The results came back statistically significant with a test statistic of $\chi^{2} = 8876.888$ which equates to a Z-score of $\sqrt{8876.888} = 94.217$.  The p-value associated with the test statistic is $2x10^{-16}$.  Thus, it does appear that, if one is assaulted, they are more likely to be assaulted in the form of a Common Assault as opposed to an Aggravated Assault.  
 \end{blockquote}
 \indent \textbf{Test 5:} Is there a District with a distinctly higher number of Burglary's in the Summer Months?  If so, which are significantly different?
 
@@ -164,15 +166,22 @@ To begin the ANOVA, I graphed the PROC MIXED results to check to see if ANOVA wa
 \item The Southern District has a distinctly larger number of burglaries in the Summer months over the Central, Eastern, and the Southwest.
 \item The Southwest District has a distinctly larger number of burglaries in the Summer months over the Eastern, Northern, and the Western districts.  
 \item The Western District has a distinctly larger number of burglaries in the Summer months over the Northern and southern Districts.
-\item The Nothern District has a distincly larger number of burglaries in the Summer months over the Central and Eastern Districts.  
+\item The Northern District has a distinctly larger number of burglaries in the Summer months over the Central and Eastern Districts.  
 \item The Southeastern District has a distinctly larger number of burglaries in the Summer months over the Central and Eastern Districts.
 \end{itemize}
 
 \end{blockquote}
+
+\subsection{Results}
+\indent 
+
+
 \subsection*{Conclusion}
-\indent With so much data within this data set, this analysis hardly counts as a tip of the iceberg in identifying relationships between Crime(s) in Baltimore.  Going forward, more exhaustive analysis should 
+\indent With so much data within this data set, this analysis hardly counts as a tip of the iceberg in identifying relationships between Crime(s) in Baltimore.  Going forward, more exhaustive analysis should be performed to identify actionable trends over time that the city could remedy or capitalize on to increase quality of life for its citizens.  Additionally, building a mathematical model that \textit{explains} crime numbers in the different neighborhoods could aid the city of Baltimore.  All in all, Baltimore Police Department keeping transparency at the forefront empowers citizens in and out of Baltimore to help turn around crime's hold on the city's residents.  
 
 
+\subsection*{References}
+City of Baltimore. (2017). BPDPart1VictimBasedCrimeData [Data file].  Retrieved from \url{https://www.kaggle.com/sohier/crime-in-baltimore/data}.  
 
 \includepdf[pages=-]{EDA_Notebook.pdf}
 

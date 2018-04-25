@@ -119,6 +119,7 @@ Since our F Test Statistic is not larger and not smaller than the F Stat for alp
 ```{r, message = FALSE, warning = FALSE}
 auto_thefts <- crime %>%
                 filter(Description %in% c("ROBBERY - CARJACKING", "AUTO THEFT"))
+dim(auto_thefts)
 head(auto_thefts)
 ```
 ```{r, message= FALSE, warning = FALSE}
@@ -213,6 +214,9 @@ H_0: M_Inside = M_Outside
 H_1: M_Inside > M_Outside
 ```{r, warning = FALSE, message = FALSE}
 w <- wilcox.test(Count ~ `Inside/Outside`, data = shootings, alternative = "greater")
+w$null.value
+w$parameter
+w$statistic
 ```
 
 Test Statistic
@@ -223,6 +227,7 @@ w$statistic
 Rejection Region
 ```{r, warning = FALSE, echo= FALSE}
 w$p.value < 0.05
+w$p.value
 ```
 
 Conclusion/Interpretation:
