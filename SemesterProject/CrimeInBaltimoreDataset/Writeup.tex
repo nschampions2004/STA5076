@@ -76,7 +76,7 @@
 
 
 \subsection*{Hypotheses}
-\indent  \textbf{Test 1:} Are the number of Arsons committed in one month more varied in the Winter months (December, January, and February) in comparison to the other nine months?
+\indent  \textbf{Test 1:} Are the number of Arson committed in one month more varied in the Winter months (December, January, and February) in comparison to the other nine months?
 
 $H_{0}: \sigma_{Winter}^{2} = \sigma_{SprSumWin}^{2}$ \\
 $H_{1}: \sigma_{Winter}^{2} > \sigma_{SprSumWin}^{2}$ \\
@@ -103,15 +103,15 @@ $H_{1}:$ At least one mean is different.  \\
 
 
 \subsection*{Results}
-\indent \textbf{Test 1:} Are the number of Arsons committed in one month more varied in the Winter months (December, January, and February) in comparison to the other nine months?  
+\indent \textbf{Test 1:} Are the number of arson committed in one month more varied in the Winter months (December, January, and February) in comparison to the other nine months?  
 
 \indent \indent \textbf{Data Cleaning}
-\begin{blockquote}  There were 1,464 arsons recorded in this data set.  When I separated them out by month, I split them into Spring, Summer, and Fall (SprSumFall) and Winter.  
+\begin{blockquote}  There were 1,464 arson recorded in this data set.  When we separate them out by month, split them into Spring, Summer, and Fall (SprSumFall) and Winter divides them into a usable frame.  
 \end{blockquote}
 
 \indent \indent \textbf{Statistical Test}
 \begin{blockquote}
-Once divided, I calculated the variances and degrees of freedom for each group.  Finally, I found the F statistic(F = 0.5954) for our variance pair.  With the test statistic in hand, I calculated the Rejection region and compared the Test Statistic to its value.  The test statistic being lower than the rejection region, we did not have sufficient evidence to reject the hypothesis that the count of Arsons in the Winter months are different for the other three seasons.  It does not appear to show a change in variation.   
+In order to find out if the arson are more varied in a Winter month, we should use an F test to compare the variances.  Now that the two groups are divided, we calculate the sample variances and degrees of freedom for each group.  Finally, we find the F statistic(F = 0.5954) for our variance pair. 
 \end{blockquote}
 
 \newpage
@@ -120,12 +120,12 @@ Once divided, I calculated the variances and degrees of freedom for each group. 
 
 \indent \indent \textbf{Data Cleaning}
 \begin{blockquote}
-I filtered down the whole table down to 28,366 robberies, carjackings, and auto thefts.  Using the \textit{wday} function from the \textbf{lubridate} package, I labeled each day by its name and split the incidents into two data frames titled weekday and weekend.  Once finished, I summed up all the events grouped on Date and looked at the distributions to make sure a test on means was appropriate.  With normal distributions in both plots, I moved on to check the variances of the two groups.  
+To prep the data to be worked on, we should filter down the whole table down to 28,366 robberies, carjackings, and auto thefts.  Using the \textit{wday} function from the \textbf{lubridate} package, we need a label for each day and we need to split the incidents into two data frames titled 'weekday' and 'weekend'.  Once finished, we should tally up all the events grouped on Date and looked at the distributions to make sure a test on means was appropriate.  With normal distributions in both plots, we can move on to check the variances of the two groups.  
 \end{blockquote}
 
 \indent \indent \textbf{Statistical Test(s)}
 \begin{blockquote}
-With normal distributions, I went about testing the variances to make sure they were not unequal.  I used the F test to make sure the test statistic was under the rejection region.  The F test turned up not to be statistically significant.  \\
+After checking the normal distributions, we should run an F test to on the variances to make sure they were not unequal.  I used the F test to make sure the test statistic was under the rejection region.  The F test turned up not to be statistically significant.  \\
 \\
 With the variances checked, I tested the means with a t-test.  When the t-test yielded a value of -1.503, I determined it wasn't statistically significant at the 95\% level.  I did not have proof that auto thefts increase on the weekends.  
 \end{blockquote}
@@ -174,7 +174,14 @@ To begin the ANOVA, I graphed the PROC MIXED results to check to see if ANOVA wa
 
 \subsection{Results}
 \indent 
+\begin{itemize}
+\item In regards to arson and their variation in Winter months compared to the other three seasons, the F test statistic is lower than the rejection region, we did not have sufficient evidence to reject the hypothesis that the count of arson in the Winter months are different for the other three seasons.  It does not appear to show a difference in variation.
 
+\item 
+
+\item   
+\end{itemize}
+ 
 
 \subsection*{Conclusion}
 \indent With so much data within this data set, this analysis hardly counts as a tip of the iceberg in identifying relationships between Crime(s) in Baltimore.  Going forward, more exhaustive analysis should be performed to identify actionable trends over time that the city could remedy or capitalize on to increase quality of life for its citizens.  Additionally, building a mathematical model that \textit{explains} crime numbers in the different neighborhoods could aid the city of Baltimore.  All in all, Baltimore Police Department keeping transparency at the forefront empowers citizens in and out of Baltimore to help turn around crime's hold on the city's residents.  
