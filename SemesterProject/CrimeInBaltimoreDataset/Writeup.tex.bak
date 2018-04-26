@@ -125,62 +125,66 @@ To prep the data to be worked on, we should filter down the whole table down to 
 
 \indent \indent \textbf{Statistical Test(s)}
 \begin{blockquote}
-After checking the normal distributions, we should run an F test to on the variances to make sure they were not unequal.  I used the F test to make sure the test statistic was under the rejection region.  The F test turned up not to be statistically significant.  \\
-\\
-With the variances checked, I tested the means with a t-test.  When the t-test yielded a value of -1.503, I determined it wasn't statistically significant at the 95\% level.  I did not have proof that auto thefts increase on the weekends.  
+After checking the normal distributions, we should run an F test to on the variances to make sure they were not unequal.  I used the F test to make sure the test statistic was under the rejection region.  The F test turned up not to be statistically significant.  With the variances checked, we can move forward with testing the means with a t-test.   
 \end{blockquote}
 
 \indent \textbf{Test 3:} On a given night are there more shootings outside a residence than inside?
 
 \indent \indent \textbf{Data Cleaning}
 \begin{blockquote}
-To begin, I took the data set down to just shootings after 5 PM of each day.  Upon filtering, I summed up each group of inside and outside shootings by date.  After grouping, I looked at the bar graphs to see what distribution this scenario fits.  Given the fact that they were skewed right, I chose the Wilcoxon Rank Sum test to determine if one group was shifted farther to the right than the other.     
+To begin, we trimmed the data set down to just shootings after 5 PM of each day.  Upon filtering, we sum up each group of inside and outside shootings by date.  After grouping on location, we look at the bar graphs to see what distribution this scenario fits.       
 \end{blockquote}
 \indent \indent \textbf{Statistical Test}
 \begin{blockquote}
-After determining the test, I ran the Wilcoxon Tank Sum test on the data and arrived at a p-value of $3.6623x10^{-23}$.  Therefore, there is evidence to reject the null hypothesis that the median number of Shootings inside and outside of a building on a given night are the same.  It appears there are more shootings outside a residence at night than inside.   
+Given the fact that they were skewed right, we should use the non-parametric Wilcoxon Rank Sum test to determine if one group was shifted farther to the right than the other.
 \end{blockquote}
 \indent \textbf{Test 4:} On a given day if you are assaulted,  is it more likely to be a common assault?
 
 \indent \indent \textbf{Data Cleaning}
 \begin{blockquote}
-To arrive at probabilities of Common vs. Aggravated Assaults, I filtered the crime down to those two, summed up the total incidents of each group by day and divided them by the total number of Assaults.  Finally, I graphed the two distributions making sure the distributions were normally distributed.  
+To arrive at probabilities of Common vs. Aggravated Assaults, we filter the crime down to those two, summed up the total incidents of each group by day and divided them by the total number of Assaults.  Finally, we graphed the two distributions making sure the distributions were normally distributed.  
 \end{blockquote}
 \indent \indent \textbf{Statistical Test}
 \begin{blockquote}
-With normally distributed distributions, I took to evaluating if the mean of the probability of falling victim to a common assault was less than that of an aggravated assault.  I used a t-test to evaluate if that was the case.  The results came back statistically significant with a test statistic of $\chi^{2} = 8876.888$ which equates to a Z-score of $\sqrt{8876.888} = 94.217$.  The p-value associated with the test statistic is $2x10^{-16}$.  Thus, it does appear that, if one is assaulted, they are more likely to be assaulted in the form of a Common Assault as opposed to an Aggravated Assault.  
+With normally distributed distributions, we take to evaluating if the mean of the probability of falling victim to a common assault was less than that of an aggravated assault.  A t-test to evaluate if that was the case will suffice.  
 \end{blockquote}
 \indent \textbf{Test 5:} Is there a District with a distinctly higher number of Burglary's in the Summer Months?  If so, which are significantly different?
 
 \indent \indent \textbf{Data Cleaning}
 \begin{blockquote}
-To begin, I pulled out only the Summer months data for Burglaries, grouped by Month/Year, and summarized the total number of incidents.  There was a District equal to 'NA' that was filtered out.  After compiling all the data into a workable form, I graphed the distributions to check to see if there was a common pattern.  Seeing nothing remarkable, I went forward with an ANOVA.
+To begin, we pull out only the Summer months data for Burglaries, grouped by Month/Year, and summarized the total number of incidents.  There was a District equal to 'NA' that was filtered out.  After compiling all the data into a workable form, we graph the residual scatterplot, histogram of residuals, and Normal Q-Q plot.  Seeing nothing remarkable, it is safe to move forward with an ANOVA.
 \end{blockquote}
 \indent \indent \textbf{Statistical Test}
 \begin{blockquote}
-To begin the ANOVA, I graphed the PROC MIXED results to check to see if ANOVA was appropriate.  Seeing no issues barring one outlier, I went forward to check to see if at least one mean was different than the rest.  My ANOVA came back statistically significant with an F value of 32.54.  Having validated that at least one mean was different, I proceeded with a TukeyHSD to check which pairs were different.  The following list reflects the hierarchy determined by the Statistically Significant pairwise differences: 
-
-\begin{itemize} 
-\item The Northeastern District has distinctly larger number of burglaries than all other groups.
-\item The Northwestern District has a distinctly larger number of burglaries than the Western, Northern, and Eastern.
-\item The Southern District has a distinctly larger number of burglaries in the Summer months over the Central, Eastern, and the Southwest.
-\item The Southwest District has a distinctly larger number of burglaries in the Summer months over the Eastern, Northern, and the Western districts.  
-\item The Western District has a distinctly larger number of burglaries in the Summer months over the Northern and southern Districts.
-\item The Northern District has a distinctly larger number of burglaries in the Summer months over the Central and Eastern Districts.  
-\item The Southeastern District has a distinctly larger number of burglaries in the Summer months over the Central and Eastern Districts.
-\end{itemize}
-
+Seeing no issues with the ANOVA plots barring one outlier, we can go forward to check to see if at least one mean was different than the rest.  Then, if significant we can use Tukey's post hoc test to determine pairwise differences.    
 \end{blockquote}
 
-\subsection{Results}
-\indent 
+\subsection*{Results}
 \begin{itemize}
 \item In regards to arson and their variation in Winter months compared to the other three seasons, the F test statistic is lower than the rejection region, we did not have sufficient evidence to reject the hypothesis that the count of arson in the Winter months are different for the other three seasons.  It does not appear to show a difference in variation.
 
-\item 
+\item Given that the variances were checked, we moved forward with a t-test to check the mean values of weekend auto thefts in comparison to weekday auto tests.  The t-test yielded a value of -1.503.  With a p-value of 0.1203, we deem this result not statistically significant at the 5\% $\alpha$ level.  We do not have proof that auto thefts increase on the weekends. 
 
-\item   
+\item After determining the test, I ran the Wilcoxon Tank Sum test on the data and arrived at a p-value of $3.6623x10^{-23}$.  Therefore, there is evidence to reject the null hypothesis that the median number of Shootings inside and outside of a building on a given night are the same.  It appears there are more shootings outside a residence at night than inside.   
+
+\item The results came back statistically significant with a test statistic of $\chi^{2} = 8876.888$ which equates to a Z-score of $\sqrt{8876.888} = 94.217$.  The p-value associated with the test statistic is $2x10^{-16}$.  Thus, it does appear that, if one is assaulted, they are more likely to be assaulted in the form of a Common Assault as opposed to an Aggravated Assault.  
+
+\item  My ANOVA came back statistically significant with an F value of 32.54.  Having validated that at least one mean was different, I proceeded with a TukeyHSD to check which pairs were different.  The following list reflects the hierarchy determined by the Statistically Significant pairwise differences: 
 \end{itemize}
+
+
+\begin{enumerate}
+
+{\setlength\itemindent{25pt}\item The Northeastern District has distinctly larger number of burglaries than all other groups.}
+{\setlength\itemindent{25pt}\item The Northwestern District has a distinctly larger number of burglaries than the Western, Northern, and Eastern.}
+{\setlength\itemindent{25pt}\item The Southern District has a distinctly larger number of burglaries in the Summer months over the Central, Eastern, and the Southwest.}
+{\setlength\itemindent{25pt}\item The Southwest District has a distinctly larger number of burglaries in the Summer months over the Eastern, Northern, and the Western districts.  }
+{\setlength\itemindent{25pt}\item The Western District has a distinctly larger number of burglaries in the Summer months over the Northern and southern Districts.}
+{\setlength\itemindent{25pt}\item The Northern District has a distinctly larger number of burglaries in the Summer months over the Central and Eastern Districts. } 
+{\setlength\itemindent{25pt}\item The Southeastern District has a distinctly larger number of burglaries in the Summer months over the Central and Eastern Districts.}
+\end{enumerate} 
+
+
  
 
 \subsection*{Conclusion}
