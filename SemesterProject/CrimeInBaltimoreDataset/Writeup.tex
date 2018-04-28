@@ -63,14 +63,15 @@
 \section*{Due 4-27-2018}
 \subsection*{Introduction}
 
-\indent Baltimore, Maryland, just the name of the city brings to mind countless forms of illegality and the varied levels of force spent to counteract such actions.  Whether it be the spike in recent carjackings from 2017 and the judicial systems lax consequences against the youth committing the crimes or Freddie Grey's death in the back seat of a police van after not being secured by officers after his arrest for possession of an illegal knife, Baltimore remains a city centered on the yin and yang between crimes committed and the response to those crimes.  To help people better understand the Baltimore's crime as well as add transparency to what police officers are up against, the Baltimore Police Department released crime statistics going back to December 2011.  The statistics are open for interaction in many ways including downloading as a .csv file, visualizing through plot.ly, and access through a SODA API.  In addition, this dataset was made available on kaggle.com for kernels to be produced on the data.  The goal of this project is better understand the behaviors associated with many different types of crimes in the city of Baltimore.  
+\indent Baltimore, Maryland, just the name of the city brings to mind countless forms of crimes and the varied levels of force spent to counteract such actions.  Whether it be the spike in recent carjackings from 2017 or Freddie Grey's death in the back seat of a police van after not being secured by officers, Baltimore remains a city centered on the yin and yang between crimes committed and the response to those crimes.  To help people better understand Baltimore's crime as well as add transparency to what police officers are up against, the Baltimore Police Department released crime statistics going back to December 2011.  The statistics are open for interaction in many ways including downloading as a .csv file, visualizing through plot.ly, and access through a SODA API.  In addition, this dataset was made available on kaggle.com for kernels to be produced on the data.  The goal of this project is better understand the behaviors associated with many different types of crimes in the city of Baltimore.  
 
 \subsection*{Methods}
 
-\indent The data was downloaded as a .csv file from \url{https://www.kaggle.com/sohier/crime-in-baltimore} and read into R for analysis.  Upon inspection, the data set contained crime and arrest records back to 12/15/2011.  The set is 276,529 rows of 15 columns including: CrimeDate, Location, Description, Inside/Outside, District, Neighborhood, and Total Incidents.  A little bit of exploratory data analysis was done to spur the questions the following hypotheses attempt to answer.  Finally, F tests were used to determine relationships of variance as well as whether variances were equal in mean tests.  T-tests were used to determine differences or equality of means after checking equality of variances.  If the equal variances requirement was violated, a Wilcoxon rank sum test was used.  In comparing percents, a two proportion z test was used to determine differences.  Finally, in looking at multiple means, an ANOVA was used to check differences with a Tukey HSD determining which pairs were significantly different.    
+\indent The data was downloaded as a .csv file from \url{https://www.kaggle.com/sohier/crime-in-baltimore} and read into R for analysis.  Upon inspection, the data set contained crime and arrest records back to 12/15/2011.  The set is 276,529 rows of 15 columns including: Crime Date, Location, Description, Inside/Outside, District, Neighborhood, and Total Incidents.  A little bit of exploratory data analysis was done to spur the questions the following hypotheses attempt to answer.  Finally, F tests were used to determine relationships of variance as well as whether variances were equal prior to mean tests.  T-tests were used to determine differences or equality of means.  If the equal variances requirement was violated and the data non-normal, a Wilcoxon rank sum test was used to test Medians.  In comparing percents, a two proportion z test was used to determine differences.  Finally, in looking at multiple means, an ANOVA was used to check differences with a Tukey HSD determining which pairs were significantly different.    
 
 \begin{figure}[h]
 \centering
+\caption{A Snapshot of the First Fifteen Rows of Data}
 \includegraphics[width = 1.0\textwidth]{DataSetView.png}
 \end{figure}
 
@@ -86,7 +87,7 @@ $H_{1}: \sigma_{Winter}^{2} > \sigma_{SprSumWin}^{2}$ \\
 $H_{0}: \mu_{Weekend} = \mu_{Weekday}$ \\
 $H_{1}: \mu_{Weekend} > \mu_{Weekday}$ \\
 
-\indent \textbf{Test 3:} On a given night are there more shootings inside a residence than outside?  
+\indent \textbf{Test 3:} On a given night, are there more shootings inside a residence than outside?  
 
 $H_{0}: M_{Inside} = M_{Outside}$ \\
 $H_{1}: M_{Inside} < M_{Outside}$ \\
@@ -106,12 +107,12 @@ $H_{1}:$ At least one mean is different.  \\
 \indent \textbf{Test 1:} Are the number of arson committed in one month more varied in the Winter months (December, January, and February) in comparison to the other nine months?  
 
 \indent \indent \textbf{Data Cleaning}
-\begin{blockquote}  There were 1,464 arson recorded in this data set.  When we separate them out by month, split them into Spring, Summer, and Fall (SprSumFall) and Winter divides them into a usable frame.  
+\begin{blockquote}  There were 1,464 arson recorded in this data set.  When we separate them out by month, split them into Spring, Summer, and Fall (SprSumFall) and Winter we have a usable data frame.  
 \end{blockquote}
 
 \indent \indent \textbf{Statistical Test}
 \begin{blockquote}
-In order to find out if the arson are more varied in a Winter month, we should use an F test to compare the variances.  Now that the two groups are divided, we calculate the sample variances and degrees of freedom for each group.  Finally, we find the F statistic(F = 0.5954) for our variance pair. 
+In order to find out if the arson are more varied in a Winter month, we should use an F test to compare the variances.  Now that the two groups are divided, we calculate the sample variances and degrees of freedom for each group.  
 \end{blockquote}
 
 \newpage
@@ -120,39 +121,42 @@ In order to find out if the arson are more varied in a Winter month, we should u
 
 \indent \indent \textbf{Data Cleaning}
 \begin{blockquote}
-To prep the data to be worked on, we should filter down the whole table down to 28,366 robberies, carjackings, and auto thefts.  Using the \textit{wday} function from the \textbf{lubridate} package, we need a label for each day and we need to split the incidents into two data frames titled 'weekday' and 'weekend'.  Once finished, we should tally up all the events grouped on Date and looked at the distributions to make sure a test on means was appropriate.  With normal distributions in both plots, we can move on to check the variances of the two groups.  
+To prep the data to be worked on, we should filter down the whole table down to 28,366 robberies, carjackings, and auto thefts.  Using the \textit{wday} function from the \textbf{lubridate} package, we need a label for each day and we need to split the incidents into two data frames titled 'weekday' and 'weekend'.  Once finished, we tally up all the events grouped on Date and looked at the distributions to make sure a test on means was appropriate.  With normal distributions in both plots, we can move on to check the variances of the two groups.  
 \end{blockquote}
 
 \indent \indent \textbf{Statistical Test(s)}
 \begin{blockquote}
-After checking the normal distributions, we should run an F test to on the variances to make sure they were not unequal.  I used the F test to make sure the test statistic was under the rejection region.  The F test turned up not to be statistically significant.  With the variances checked, we can move forward with testing the means with a t-test.   
+After checking the normal distributions, we should run an F test to on the variances to make sure they were not unequal.  We use the F test to make sure the test statistic was under the rejection region.  The F test turned up not to be statistically significant.  With the variances checked, we can move forward with testing the means with a t-test.   
 \end{blockquote}
 
 \indent \textbf{Test 3:} On a given night are there more shootings outside a residence than inside?
 
 \indent \indent \textbf{Data Cleaning}
 \begin{blockquote}
-To begin, we trimmed the data set down to just shootings after 5 PM of each day.  Upon filtering, we sum up each group of inside and outside shootings by date.  After grouping on location, we look at the bar graphs to see what distribution this scenario fits.       
+To begin, we trim the data set down to just shootings after 5 PM of each day.  Upon filtering, we sum up each group of inside and outside shootings by date.  After grouping on location, we look at the distribution to see what statistical test fits.       
 \end{blockquote}
 \indent \indent \textbf{Statistical Test}
 \begin{blockquote}
 Given the fact that they were skewed right, we should use the non-parametric Wilcoxon Rank Sum test to determine if one group was shifted farther to the right than the other.
 \end{blockquote}
+
+\newpage 
+
 \indent \textbf{Test 4:} On a given day if you are assaulted,  is it more likely to be a common assault?
 
 \indent \indent \textbf{Data Cleaning}
 \begin{blockquote}
-To arrive at probabilities of Common vs. Aggravated Assaults, we filter the crime down to those two, summed up the total incidents of each group by day and divided them by the total number of Assaults.  Finally, we graphed the two distributions making sure the distributions were normally distributed.  
+To arrive at probabilities of Common vs. Aggravated Assaults, we filter the crime down to those two, summed up the total incidents of each group by day and divided them by the total number of Assaults.  Finally, we graph the two distributions making sure the distributions were normally distributed.  
 \end{blockquote}
 \indent \indent \textbf{Statistical Test}
 \begin{blockquote}
-With normally distributed distributions, we take to evaluating if the mean of the probability of falling victim to a common assault was less than that of an aggravated assault.  A t-test to evaluate if that was the case will suffice.  
+With normally distributed distributions, we take to evaluating if the mean of the probability of falling victim to a common assault was less than that of an aggravated assault.  A two sample proportion test to evaluate if that was the case will suffice.  
 \end{blockquote}
 \indent \textbf{Test 5:} Is there a District with a distinctly higher number of Burglary's in the Summer Months?  If so, which are significantly different?
 
 \indent \indent \textbf{Data Cleaning}
 \begin{blockquote}
-To begin, we pull out only the Summer months data for Burglaries, grouped by Month/Year, and summarized the total number of incidents.  There was a District equal to 'NA' that was filtered out.  After compiling all the data into a workable form, we graph the residual scatterplot, histogram of residuals, and Normal Q-Q plot.  Seeing nothing remarkable, it is safe to move forward with an ANOVA.
+To begin, we pull out only the Summer months data for Burglaries, grouped by Month and Year, and summarized the total number of incidents.  There was a District equal to 'NA' that was filtered out.  After compiling all the data into a workable form, we graph the residual scatterplot, histogram of residuals, and Normal Q-Q plot.  Seeing nothing appalling, we proceed to move forward with an ANOVA.
 \end{blockquote}
 \indent \indent \textbf{Statistical Test}
 \begin{blockquote}
@@ -160,16 +164,17 @@ Seeing no issues with the ANOVA plots barring one outlier, we can go forward to 
 \end{blockquote}
 
 \subsection*{Results}
+With so many different aspects to explore within the data, 
 \begin{itemize}
 \item In regards to arson and their variation in Winter months compared to the other three seasons, the F test statistic is lower than the rejection region, we did not have sufficient evidence to reject the hypothesis that the count of arson in the Winter months are different for the other three seasons.  It does not appear to show a difference in variation.
 
-\item Given that the variances were checked, we moved forward with a t-test to check the mean values of weekend auto thefts in comparison to weekday auto tests.  The t-test yielded a value of -1.503.  With a p-value of 0.1203, we deem this result not statistically significant at the 5\% $\alpha$ level.  We do not have proof that auto thefts increase on the weekends. 
+\item Given that the variances were checked, we move forward with a t-test to check the mean values of weekend auto thefts in comparison to weekday auto tests.  The t-test yielded a value of -1.503.  With a p-value of 0.1203, we deem this result not statistically significant at the 5\% $\alpha$ level.  We do not have proof that auto thefts increase on the weekends. 
 
-\item After determining the test, I ran the Wilcoxon Tank Sum test on the data and arrived at a p-value of $3.6623x10^{-23}$.  Therefore, there is evidence to reject the null hypothesis that the median number of Shootings inside and outside of a building on a given night are the same.  It appears there are more shootings outside a residence at night than inside.   
+\item After determining the test appropriate for checking whether a higher number of shootings happen outside a residence over inside, I ran the Wilcoxon Tank Sum test on the data and arrived at a p-value of $3.6623x10^{-23}$.  Therefore, there is evidence to reject the null hypothesis that the median number of shootings inside and outside of a building on a given night are the same.  It appears there are more shootings outside a residence at night than inside.   
 
-\item The results came back statistically significant with a test statistic of $\chi^{2} = 8876.888$ which equates to a Z-score of $\sqrt{8876.888} = 94.217$.  The p-value associated with the test statistic is $2x10^{-16}$.  Thus, it does appear that, if one is assaulted, they are more likely to be assaulted in the form of a Common Assault as opposed to an Aggravated Assault.  
+\item The results for Common and Aggravated Assaults test came back statistically significant with a test statistic of $\chi^{2} = 8876.888$ which equates to a Z-score of $\sqrt{8876.888} = 94.217$.  The p-value associated with the test statistic is $2x10^{-16}$.  Thus, it does appear that, if one is assaulted, they are more likely to be assaulted in the form of a Common Assault as opposed to an Aggravated Assault.  
 
-\item  My ANOVA came back statistically significant with an F value of 32.54.  Having validated that at least one mean was different, I proceeded with a TukeyHSD to check which pairs were different.  The following list reflects the hierarchy determined by the Statistically Significant pairwise differences: 
+\item  My ANOVA came back statistically significant with an F value of 32.54, and, thus, at least one mean was different.  I proceeded with a TukeyHSD to check which pairs were different.  The following list reflects the hierarchy determined by the Statistically Significant pairwise differences: 
 \end{itemize}
 
 
@@ -185,14 +190,14 @@ Seeing no issues with the ANOVA plots barring one outlier, we can go forward to 
 \end{enumerate} 
 \begin{figure}[h]
 \centering
-\includegraphics[width = 1.0\textwidth]{TukeyHSD.png}
+\includegraphics[width = 0.75\textwidth]{TukeyHSD.png}
 \end{figure}
 
- 
 
 \subsection*{Conclusion}
-\indent With so much data within this data set, this analysis hardly counts as a tip of the iceberg in identifying relationships between Crime(s) in Baltimore.  Going forward, more exhaustive analysis should be performed to identify actionable trends over time that the city could remedy or capitalize on to increase quality of life for its citizens.  Additionally, building a mathematical model that \textit{explains} crime numbers in the different neighborhoods could aid the city of Baltimore.  All in all, Baltimore Police Department keeping transparency at the forefront empowers citizens in and out of Baltimore to help turn around crime's hold on the city's residents.  
+\indent With so much data within this data set, this analysis hardly counts as a tip of the iceberg in identifying relationships between crime(s) in Baltimore.  Going forward, more exhaustive analysis should be performed to identify actionable trends over time that the city could remedy or capitalize on to increase quality of life for its citizens.  Additionally, building a mathematical model that \textit{explains} crime numbers in the different neighborhoods could aid the city of Baltimore.  All in all, Baltimore Police Department keeping transparency at the forefront empowers citizens in and out of Baltimore to help turn around crime's hold on the city's residents.  
 
+\newpage
 
 \subsection*{References}
 City of Baltimore. (2017). BPDPart1VictimBasedCrimeData [Data file].  Retrieved from \url{https://www.kaggle.com/sohier/crime-in-baltimore/data}.  
